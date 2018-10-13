@@ -59,6 +59,7 @@
 		"react": "^16.4.1",
 		"react-ace": "^5.9.0",
 		"react-dom": "^16.4.1",
-		"react-polyfills": "0.0.1"
+		"react-polyfills": "0.0.1",
+		"react-router-dom": "^4.3.1"
 	}
 }

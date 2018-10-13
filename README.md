@@ -1,13 +1,12 @@
 # Sisters of Culture Hair
-##### Website and api from hair appointments, products, clients and artists
+#### Website and api from hair appointments, products, clients and artists
 The main contributors include
-##### @janereq
-##### @Cath32
-
-Requierents: Make sure you have node version 8
+#### @janereq
+#### @Cath32
 
 ##### Download the boilerplate using the BreatheCode CLI
 ```
+$ npm use 8
 $ npm i breathecode-cli -g
 ```
 
@@ -36,11 +35,3 @@ To publish your website you need to `push your code to your github repository` a
 ```sh
 $ npm run deploy
 ```
-
-## Other features
-
-- Automatic Code Formatting: Use of [Prettier](https://prettier.io/) for automatic code identation and formating.
-- Error reporting: Use of [esling](https://eslint.org/) for better error reporting.
-- Hot Deploy: Use of [Webpack Development Server](https://webpack.js.org/configuration/dev-server/) for hot deploy and live reload.
-- One-click publish of the code to github pages.
-- Babel 7 (really fast).
