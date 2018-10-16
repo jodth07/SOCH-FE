@@ -6,6 +6,7 @@ import Navbar from "./views/navbar.jsx";
 import Footer from "./views/footer.jsx";
 import Home from "./views/home.jsx";
 import Artists from "./views/artists.jsx";
+import ArtistBio from "./views/artistBio.jsx";
 import ProductBio from "./views/productBio.jsx";
 
 //create your first component
