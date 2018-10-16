@@ -1,5 +1,5 @@
 {
-	"name": "react-hello",
+	"name": "react-hello-webapp",
 	"version": "1.0.1",
 	"description": "",
 	"main": "index.js",
@@ -9,7 +9,10 @@
 		"build": "webpack --mode development",
 		"deploy": "node deploy-to-github.js"
 	},
-	"author": "Alejandro Sanchez",
+	"author": [
+		"Alejandro Sanchez",
+		"Ignacio Cordoba"
+	],
 	"license": "ISC",
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
@@ -37,7 +40,7 @@
 		"sass-loader": "^6.0.6",
 		"style-loader": "^0.19.0",
 		"webpack": "^4.0.1",
-		"webpack-cli": "^2.0.9",
+		"webpack-cli": "^3.1.1",
 		"webpack-dev-server": "^3.1.1"
 	},
 	"babel": {
@@ -56,10 +59,10 @@
 		"popper.js": "^1.12.9",
 		"prop-types": "^15.6.1",
 		"query-string": "^5.1.1",
-		"react": "^16.4.1",
-		"react-ace": "^5.9.0",
-		"react-dom": "^16.4.1",
+		"react": "^16.5.2",
 		"react-polyfills": "0.0.1",
+		"react-dom": "^16.5.2",
+		"react-router": "^4.3.1",
 		"react-router-dom": "^4.3.1"
 	}
 }
