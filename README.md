@@ -5,15 +5,17 @@ The main contributors include
 #### @Cath32
 
 ##### Download the boilerplate using the BreatheCode CLI
+if npm version 8 i not already installed 
+```
+$ npm i 8
+```
+Other Wise
+
 ```
 $ npm use 8
 $ npm i breathecode-cli -g
 ```
 
-##### Download the boilerplate using the BreatheCode CLI
-```
-$ bc start:react-project -r
-```
 ##### and install the npm package:
 ```
 $ npm install
