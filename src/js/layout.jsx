@@ -15,6 +15,9 @@ import { Footer } from "./component/footer.jsx";
 import Artists from "./views/artists.jsx";
 import ArtistBio from "./views/artistBio.jsx";
 import ProductBio from "./views/productBio.jsx";
+import Products from "./views/products.jsx";
+
+import LandingPage from "./views/landingPage.jsx";
 
 //create your first component
 export class Layout extends React.Component {
@@ -23,17 +26,35 @@ export class Layout extends React.Component {
 			<BrowserRouter>
 				<ScrollToTop>
 					<Navbar />
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route path="/index" component={Home} />
-						<Route path="/product" component={ProductBio} />
-						<Route path="/artits" component={Artists} />
+					<div className="pt-5">
+						<Switch>
+							<Route exact path="/" component={Home} />
+							<Route path="/index" component={LandingPage} />
 
-						<Route path="/demo" component={Demo} />
-						<Route path="/single/:theid" component={Single} />
-						<Route render={() => <h1>Not found!</h1>} />
-					</Switch>
-					<Footer />
+							<Route path="/products" component={Products} />
+							<Route
+								path="/product/:productId"
+								component={ProductBio}
+							/>
+
+							<Route path="/services" component={Products} />
+							<Route
+								path="/service/:serviceID"
+								component={ProductBio}
+							/>
+
+							<Route path="/artists" component={Artists} />
+							<Route
+								path="/artist/:artistBio"
+								component={ArtistBio}
+							/>
+
+							<Route path="/demo" component={Demo} />
+							<Route path="/single/:theid" component={Single} />
+							<Route render={() => <h1>Not found!</h1>} />
+						</Switch>
+						<Footer />
+					</div>
 				</ScrollToTop>
 			</BrowserRouter>
 		);

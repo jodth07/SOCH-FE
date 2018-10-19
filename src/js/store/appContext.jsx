@@ -10,10 +10,7 @@ const Store = PassedComponent => {
 			this.state = getState(this);
 		}
 
-		componentDidMount() {
-			// Set your fetchs/Ajax requests here.
-			// make sure you're using the store: this.state.store
-		}
+		componentDidMount() {}
 
 		render() {
 			return (
@@ -23,6 +20,7 @@ const Store = PassedComponent => {
 			);
 		}
 	}
+
 	return StoreWrapper;
 };
 

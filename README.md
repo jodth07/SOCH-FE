@@ -1,5 +1,7 @@
 # Sisters of Culture Hair
-#### Website and api from hair appointments, products, clients and artists
+#### Website FrontEnd for hair appointments, products, clients and artists 
+#### Using React Context
+
 The contributors include
 ##### @janereq and @Cath32
 
@@ -19,7 +21,10 @@ Start the webpack server with live reload:
 - `$ npm run dev-server` for windows, mac or linux.
 
 ## Publish to Github! 
-
 ```sh
 $ npm run deploy
 ```
+
+### 4Geeks Academy Final Project
+#### Also using 4Geeks BoilerPlate 
+`https://github.com/4GeeksAcademy/react-hello-webapp`
