@@ -16,6 +16,7 @@ import Artists from "./views/artists.jsx";
 import ArtistBio from "./views/artistBio.jsx";
 import ProductBio from "./views/productBio.jsx";
 import Products from "./views/products.jsx";
+import Login from "./views/login.jsx";
 
 import LandingPage from "./views/landingPage.jsx";
 
@@ -26,7 +27,7 @@ export class Layout extends React.Component {
 			<BrowserRouter>
 				<ScrollToTop>
 					<Navbar />
-					<div className="pt-5">
+					<div className="pt-5 mt-3">
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route path="/index" component={LandingPage} />
@@ -48,6 +49,8 @@ export class Layout extends React.Component {
 								path="/artist/:artistBio"
 								component={ArtistBio}
 							/>
+
+							<Route path="/login" component={Login} />
 
 							<Route path="/demo" component={Demo} />
 							<Route path="/single/:theid" component={Single} />
