@@ -17,6 +17,7 @@ import ArtistBio from "./views/artistBio.jsx";
 import ProductBio from "./views/productBio.jsx";
 import Products from "./views/products.jsx";
 import Login from "./views/login.jsx";
+import Checkout from "./views/checkout.jsx";
 
 import LandingPage from "./views/landingPage.jsx";
 
@@ -51,6 +52,7 @@ export class Layout extends React.Component {
 							/>
 
 							<Route path="/login" component={Login} />
+							<Route path="/checkout" component={Checkout} />
 
 							<Route path="/demo" component={Demo} />
 							<Route path="/single/:theid" component={Single} />
