@@ -85,7 +85,7 @@ const getState = scope => {
 
 			session: {
 				username: "Rigo",
-				email: "rigocodes@gmail.com",
+				email: "rigo",
 				loggedIn: false,
 				user: {
 					firstname: "Rigo",
