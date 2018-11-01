@@ -71,6 +71,11 @@ const getState = scope => {
 					content: "Noneya"
 				}
 			],
+			featured: [
+				{
+					type: AudioTrackList
+				}
+			],
 
 			session: {
 				username: "Rigo",

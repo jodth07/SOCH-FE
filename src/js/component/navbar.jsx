@@ -6,7 +6,7 @@ export class Navbar extends React.Component {
 		return (
 			<nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 				{/* <div className="container"> */}
-				<Link className="navbar-brand" to={"/index"}>
+				<Link className="navbar-brand" to={"/"}>
 					Sisters of Culture Hair
 				</Link>
 

@@ -30,8 +30,8 @@ export class Layout extends React.Component {
 					<Navbar />
 					<div className="pt-5 mt-3">
 						<Switch>
-							<Route exact path="/" component={Home} />
-							<Route path="/index" component={LandingPage} />
+							<Route exact path="/" component={LandingPage} />
+							<Route path="/index" component={Home} />
 
 							<Route path="/products" component={Products} />
 							<Route
@@ -56,7 +56,7 @@ export class Layout extends React.Component {
 
 							<Route path="/demo" component={Demo} />
 							<Route path="/single/:theid" component={Single} />
-							<Route render={() => <h1>Not found!</h1>} />
+							<Route default render={() => <h1>Not found!</h1>} />
 						</Switch>
 						<Footer />
 					</div>
