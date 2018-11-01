@@ -56,7 +56,8 @@ const getState = scope => {
 			featured: [
 				{
 					type: "Artist",
-					date: new Date(2018, 11, 1),
+					name: "Mary Leytie",
+					date: "Nov, 2018",
 					description:
 						"JavaScript, however, understands the date based on a timestamp derived from Unix time, which is a value consisting of the number of milliseco",
 					link: "artists",
@@ -64,7 +65,8 @@ const getState = scope => {
 				},
 				{
 					type: "Service",
-					date: new Date(2018, 11, 1),
+					name: "Layered Hair",
+					date: "Nov, 2018",
 					description:
 						"This is a wider card with supporting text below as a natural lead-in to additional content.",
 					link: "/services",
@@ -72,7 +74,8 @@ const getState = scope => {
 				},
 				{
 					type: "Product",
-					date: new Date(2018, 11, 1),
+					name: "Olaplex Hair Perfector",
+					date: "Nov, 2018",
 					description:
 						"By default, JavaScript will use the browser's time zone and display a date as a full text string:",
 					link: "products",

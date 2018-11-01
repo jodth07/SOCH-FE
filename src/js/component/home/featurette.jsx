@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export function Featurette(props) {
 	// render() {
@@ -8,23 +9,20 @@ export function Featurette(props) {
 		<div className="card flex-md-row mb-4 box-shadow h-md-250">
 			<div className="card-body d-flex flex-column align-items-start">
 				<strong className="d-inline-block mb-2 text-primary">
-					World
+					Featured {props.item.type}
 				</strong>
 				<h3 className="mb-0">
 					<a className="text-dark" href="#">
-						Featured post
+						{props.item.name}
 					</a>
 				</h3>
-				<div className="mb-1 text-muted">Nov 12</div>
-				<p className="card-text mb-auto">
-					This is a wider card with supporting text below as a natural
-					lead-in to additional content.
-				</p>
-				<a href="#">Continue reading</a>
+				<div className="mb-1 text-muted">{props.item.date}</div>
+				<p className="card-text mb-auto">q {props.item.description}</p>
+				<Link to={props.item.link}>Continue reading</Link>
 			</div>
 			<img
 				className="card-img-right flex-auto d-none d-md-block"
-				data-src="holder.js/200x250?theme=thumb"
+				data-src={props.item.img}
 				alt="Card image cap"
 			/>
 			{/* </div> */}
@@ -32,10 +30,11 @@ export function Featurette(props) {
 	);
 	// }
 }
-// Featurette.propTypes = {
-// 	isReverse: PropTypes.bool,
-// 	product: PropTypes.object.isRequired,
-// 	button: PropTypes.element.isRequired
-// };
+Featurette.propTypes = {
+	item: PropTypes.object
+	// 	isReverse: PropTypes.bool,
+	// 	product: PropTypes.object.isRequired,
+	// 	button: PropTypes.element.isRequired
+};
 
 export default Featurette;
