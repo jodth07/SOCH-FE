@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { Context } from "../store/appContext.jsx";
 import MyCaroursel from "../component/home/carousel.jsx";
-import { Card } from "../component/home/card.jsx";
 import { Featurette } from "../component/home/featurette.jsx";
 
 import slide12 from "../../img/slide_12.jpg";

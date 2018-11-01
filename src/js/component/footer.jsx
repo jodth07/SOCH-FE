@@ -3,11 +3,9 @@ import React, { Component } from "react";
 export class Footer extends Component {
 	render() {
 		return (
-			<footer className="container border-top p-5">
-				<div className="container ">
-					<div className="row">
-						<h2>This is where the footer will go</h2>
-					</div>
+			<footer className="container border-top p-3">
+				<div className="container text-center">
+					<p>© 2018 Copyright | ©author JD</p>
 				</div>
 			</footer>
 		);
