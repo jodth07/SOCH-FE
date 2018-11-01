@@ -10,12 +10,13 @@ import Store from "./store/appContext.jsx";
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 
-// import Navbar from "./views/navbar.jsx";
-// import Footer from "./views/footer.jsx";
 import Artists from "./views/artists.jsx";
 import ArtistBio from "./views/artistBio.jsx";
-import ProductBio from "./views/productBio.jsx";
 import Products from "./views/products.jsx";
+import ProductBio from "./views/productBio.jsx";
+import Services from "./views/services.jsx";
+import ServiceBio from "./views/serviceBio.jsx";
+
 import Login from "./views/login.jsx";
 import Checkout from "./views/checkout.jsx";
 
@@ -33,22 +34,22 @@ export class Layout extends React.Component {
 							<Route exact path="/" component={LandingPage} />
 							<Route path="/index" component={Home} />
 
+							<Route path="/artists" component={Artists} />
+							<Route
+								path="/artist/:artistBio"
+								component={ArtistBio}
+							/>
+
 							<Route path="/products" component={Products} />
 							<Route
 								path="/product/:productId"
 								component={ProductBio}
 							/>
 
-							<Route path="/services" component={Products} />
+							<Route path="/services" component={Services} />
 							<Route
 								path="/service/:serviceID"
-								component={ProductBio}
-							/>
-
-							<Route path="/artists" component={Artists} />
-							<Route
-								path="/artist/:artistBio"
-								component={ArtistBio}
+								component={ServiceBio}
 							/>
 
 							<Route path="/login" component={Login} />

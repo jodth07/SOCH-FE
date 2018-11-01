@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export function Featurette(props) {
 	// render() {
+	var featuredItem = props;
 	return (
 		<div className="card flex-md-row mb-4 box-shadow h-md-250">
 			<div className="card-body d-flex flex-column align-items-start">
@@ -31,10 +32,10 @@ export function Featurette(props) {
 	);
 	// }
 }
-Featurette.propTypes = {
-	isReverse: PropTypes.bool,
-	product: PropTypes.object.isRequired,
-	button: PropTypes.element.isRequired
-};
+// Featurette.propTypes = {
+// 	isReverse: PropTypes.bool,
+// 	product: PropTypes.object.isRequired,
+// 	button: PropTypes.element.isRequired
+// };
 
 export default Featurette;

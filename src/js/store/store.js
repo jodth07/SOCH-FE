@@ -36,24 +36,6 @@ const getState = scope => {
 				}
 			],
 
-			items_2: [
-				{
-					src: slide4,
-					altText: "Artists",
-					caption: "Artists"
-				},
-				{
-					src: slide5,
-					altText: "Products",
-					caption: "Products"
-				},
-				{
-					src: slide6,
-					altText: "Services",
-					caption: "Services"
-				}
-			],
-
 			products: [
 				{
 					image: slide1,
@@ -73,7 +55,28 @@ const getState = scope => {
 			],
 			featured: [
 				{
-					type: AudioTrackList
+					type: "Artist",
+					date: new Date(2018, 11, 1),
+					description:
+						"JavaScript, however, understands the date based on a timestamp derived from Unix time, which is a value consisting of the number of milliseco",
+					link: "artists",
+					img: slide12
+				},
+				{
+					type: "Service",
+					date: new Date(2018, 11, 1),
+					description:
+						"This is a wider card with supporting text below as a natural lead-in to additional content.",
+					link: "/services",
+					img: slide11
+				},
+				{
+					type: "Product",
+					date: new Date(2018, 11, 1),
+					description:
+						"By default, JavaScript will use the browser's time zone and display a date as a full text string:",
+					link: "products",
+					img: slide10
 				}
 			],
 
