@@ -13,6 +13,7 @@ import Products from "./views/products.jsx";
 import ProductBio from "./views/productBio.jsx";
 import Services from "./views/services.jsx";
 import ServiceBio from "./views/serviceBio.jsx";
+import ItemView from "./views/itemView.jsx";
 
 import Login from "./views/login.jsx";
 import Checkout from "./views/checkout.jsx";
@@ -31,21 +32,21 @@ export class Layout extends React.Component {
 							<Route exact path="/" component={Home} />
 
 							<Route path="/artists" component={Artists} />
-							<Route
+							{/* <Route
 								path="/artist/:artistBio"
 								component={ArtistBio}
-							/>
+							/> */}
 
 							<Route path="/products" component={Products} />
 							<Route
 								path="/product/:productId"
-								component={ProductBio}
+								component={ItemView}
 							/>
 
 							<Route path="/services" component={Services} />
 							<Route
-								path="/service/:serviceID"
-								component={ServiceBio}
+								path="/service/:serviceId"
+								component={ItemView}
 							/>
 
 							<Route path="/login" component={Login} />
