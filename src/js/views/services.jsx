@@ -3,7 +3,7 @@ import { Card } from "../component/card.jsx";
 import { Context } from "../store/appContext.jsx";
 
 //create your first component
-export default class Products extends Component {
+export default class Services extends Component {
 	render() {
 		return (
 			<div className="card-columns container">
@@ -11,7 +11,7 @@ export default class Products extends Component {
 					{({ store }) => {
 						return (
 							<div>
-								{store.products.map((product, index) => {
+								{store.services.map((product, index) => {
 									return <Card key={index} item={product} />;
 								})}
 							</div>

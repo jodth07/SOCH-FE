@@ -1,44 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export function Featurette(props) {
+	// render() {
+	var featuredItem = props;
 	return (
-		<div className="row featurette">
-			<div
-				className={
-					props.isReverse
-						? "col-md-7 order-md-2 my-auto"
-						: "col-md-7 my-auto"
-				}>
-				<h2
-					className="featurette-heading"
-					style={{ fontWeight: "400", fontSize: "50px" }}>
-					{props.product.name}
-					<br />
-					<span className="text-muted">${props.product.price}</span>
-				</h2>
-				<p style={{ fontSize: "1.6rem" }}>
-					{props.product.description}
-				</p>
-				{props.button}
+		<div className="card flex-md-row mb-4 box-shadow h-md-250">
+			<div className="card-body d-flex flex-column align-items-start">
+				<strong className="d-inline-block mb-2 text-primary">
+					Featured {props.item.type}
+				</strong>
+				<h3 className="mb-0">
+					<a className="text-dark" href="#">
+						{props.item.name}
+					</a>
+				</h3>
+				<div className="mb-1 text-muted">{props.item.date}</div>
+				<p className="card-text mb-auto">q {props.item.description}</p>
+				<Link to={props.item.link}>Continue reading</Link>
 			</div>
-			<div className="col-md-5">
-				<img
-					className="featurette-image img-fluid mx-auto"
-					data-src="holder.js/500x500/auto"
-					alt="500x500"
-					style={{ width: "500px", height: "500px" }}
-					src={props.product.image}
-					data-holder-rendered="true"
-				/>
-			</div>
+			<img
+				className="card-img-right flex-auto d-none d-md-block"
+				style={{ width: 18 + "em", height: 14 + "em" }}
+				src={props.item.img}
+				alt="Card image cap"
+			/>
+			{/* </div> */}
 		</div>
 	);
+	// }
 }
 Featurette.propTypes = {
-	isReverse: PropTypes.bool,
-	product: PropTypes.object.isRequired,
-	button: PropTypes.element.isRequired
+	item: PropTypes.object
+	// 	isReverse: PropTypes.bool,
+	// 	product: PropTypes.object.isRequired,
+	// 	button: PropTypes.element.isRequired
 };
 
 export default Featurette;
