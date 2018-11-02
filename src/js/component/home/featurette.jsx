@@ -22,7 +22,8 @@ export function Featurette(props) {
 			</div>
 			<img
 				className="card-img-right flex-auto d-none d-md-block"
-				data-src={props.item.img}
+				style={{ width: 18 + "em", height: 14 + "em" }}
+				src={props.item.img}
 				alt="Card image cap"
 			/>
 			{/* </div> */}

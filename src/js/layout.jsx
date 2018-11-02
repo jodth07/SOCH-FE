@@ -2,9 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/functional/scrollToTop.jsx";
 
-import { Home } from "./views/home.jsx";
-import { Demo } from "./views/demo.jsx";
-import { Single } from "./views/single.jsx";
 import Store from "./store/appContext.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -20,7 +17,7 @@ import ServiceBio from "./views/serviceBio.jsx";
 import Login from "./views/login.jsx";
 import Checkout from "./views/checkout.jsx";
 
-import LandingPage from "./views/landingPage.jsx";
+import Home from "./views/home.jsx";
 
 //create your first component
 export class Layout extends React.Component {
@@ -31,8 +28,7 @@ export class Layout extends React.Component {
 					<Navbar />
 					<div className="pt-5 mt-3">
 						<Switch>
-							<Route exact path="/" component={LandingPage} />
-							<Route path="/index" component={Home} />
+							<Route exact path="/" component={Home} />
 
 							<Route path="/artists" component={Artists} />
 							<Route
@@ -55,8 +51,6 @@ export class Layout extends React.Component {
 							<Route path="/login" component={Login} />
 							<Route path="/checkout" component={Checkout} />
 
-							<Route path="/demo" component={Demo} />
-							<Route path="/single/:theid" component={Single} />
 							<Route default render={() => <h1>Not found!</h1>} />
 						</Switch>
 						<Footer />

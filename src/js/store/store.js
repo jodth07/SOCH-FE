@@ -2,10 +2,6 @@ import slide1 from "../../img/slide1.jpg";
 import slide2 from "../../img/slide2.jpg";
 import slide3 from "../../img/slide3.jpg";
 
-import slide4 from "../../img/slide_4.jpg";
-import slide5 from "../../img/slide_5.jpg";
-import slide6 from "../../img/slide_6.jpg";
-
 import slide10 from "../../img/slide_10.jpg";
 import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
@@ -14,7 +10,6 @@ import slide13 from "../../img/slide_13.jpg";
 const getState = scope => {
 	return {
 		store: {
-			posts: [],
 			items_1: [
 				{
 					src: slide10,
@@ -40,17 +35,20 @@ const getState = scope => {
 				{
 					image: slide1,
 					title: "My Bitch 3",
-					content: "Noneya"
+					content:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
 				},
 				{
 					image: slide2,
 					title: "My Bitch 3",
-					content: "Noneya"
+					content:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
 				},
 				{
 					image: slide3,
 					title: "My Bitch 1",
-					content: "Noneya"
+					content:
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
 				}
 			],
 			featured: [
@@ -94,20 +92,7 @@ const getState = scope => {
 				}
 			},
 
-			cart: [],
-
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			cart: []
 		},
 		actions: {
 			changeColor: (element, color) => {
