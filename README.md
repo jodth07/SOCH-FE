@@ -1,9 +1,5 @@
 # Sisters of Culture Hair
-#### Website FrontEnd for hair appointments, products, clients and artists 
-#### Using React Context
-
-The contributors include
-##### @janereq and @Cath32
+#### Website FrontEnd for hair appointments, products, clients and artists | Using React Context
 
 ##### Download the boilerplate using the BreatheCode CLI
 `$ npm i 8` if version 8 is not yet installed, otherwise 
