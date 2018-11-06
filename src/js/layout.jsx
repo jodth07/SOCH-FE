@@ -15,6 +15,7 @@ import ItemView from "./views/itemView.jsx";
 import Login from "./views/login.jsx";
 import SignUp from "./views/signup.jsx";
 import Checkout from "./views/checkout.jsx";
+import UserInfo from "./views/userInfo.jsx";
 
 import Home from "./views/home.jsx";
 
@@ -47,6 +48,7 @@ export class Layout extends React.Component {
 							<Route path="/signup" component={SignUp} />
 
 							<Route path="/checkout" component={Checkout} />
+							<Route path="/userinfo/" component={UserInfo} />
 
 							<Route default render={() => <h1>Not found!</h1>} />
 						</Switch>

@@ -288,8 +288,14 @@ const getState = scope => {
 			],
 
 			session: {
-				username: "Rigo",
-				email: "rigo",
+				user: {
+					username: "Rigo",
+					email: "rigo",
+					password: "rigo",
+					firstName: "Rigo",
+					lastName: "Berto"
+				},
+
 				loggedIn: false
 			}
 		},
@@ -312,11 +318,20 @@ const getState = scope => {
 				scope.setState(mistake);
 			},
 
+			createUser: user => {
+				let store = scope.state.store;
+				store.users.push(user);
+				store.session.user = user;
+				// store.session.email = user.email;
+
+				scope.setState({ store });
+			},
+
 			isLegalUser: user => {
 				let store = scope.state.store;
 				if (
-					user.username === store.session.username &&
-					user.email === store.session.email
+					user.username === store.session.user.username &&
+					user.password === store.session.user.password
 				) {
 					store.session.loggedIn = true;
 					scope.setState({ store });

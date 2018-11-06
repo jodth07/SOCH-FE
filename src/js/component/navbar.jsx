@@ -88,7 +88,8 @@ export class Navbar extends React.Component {
 															Hello{" "}
 															{
 																store.session
-																	.username
+																	.user
+																	.firstName
 															}
 															!{" "}
 														</a>

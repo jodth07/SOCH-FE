@@ -41,54 +41,7 @@ export class Login extends Component {
 								<div className="row justify-content-center mt-5">
 									<div className="bg-light p-5 col-6 rounded">
 										<div className="container ">
-											<form>
-												<div className="form-group">
-													<label>User Name</label>
-													<input
-														type="userName"
-														ref={ref =>
-															(this.nameTextInput = ref)
-														}
-														className="form-control"
-														placeholder="username"
-													/>
-												</div>
-
-												<div className="form-group">
-													<label>Email Address</label>
-													<input
-														type="email"
-														ref={ref =>
-															(this.emailTextInput = ref)
-														}
-														className="form-control"
-														placeholder="email "
-													/>
-												</div>
-
-												<button
-													type="submit"
-													onClick={event => {
-														if (
-															this.handleRequest(
-																event
-															)
-														) {
-															if (
-																actions.isLegalUser(
-																	user
-																)
-															) {
-																this.props.history.push(
-																	"/"
-																);
-															}
-														}
-													}}
-													className="btn btn-primary">
-													Submit
-												</button>
-											</form>
+											<h1>This is User Info Page</h1>
 										</div>
 									</div>
 								</div>

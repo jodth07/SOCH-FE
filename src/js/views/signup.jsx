@@ -6,6 +6,7 @@ export default class SignUp extends Component {
 	constructor() {
 		super();
 		this.state = {
+			session: false,
 			user: {
 				username: "",
 				email: ""
@@ -20,23 +21,71 @@ export default class SignUp extends Component {
 
 	handleRequest(event) {
 		event.preventDefault();
-		var newUser = this.getUser();
-		// var user;
-		// for (var key in newUser) {
-		// 	if (newUser.hasOwnProperty(key)) {
-		// 		newUser[key] = newUser[key].value;
-		// 		console.log(newUser[key].value);
-		// 	}
-		// }
+		var user = this.getUser();
 
-		if (newUser) {
-			console.log(newUser);
+		if (user.password1 == user.password2) {
+			user.password = user.password1;
+			var session = true;
+			user.session = true;
+			this.setState({ session, user });
 			return true;
 		}
 	}
 
 	render() {
 		var user = this.getUser();
+		var USstates = [
+			"AK",
+			"AL",
+			"AR",
+			"AZ",
+			"CA",
+			"CO",
+			"CT",
+			"DE",
+			"FL",
+			"GA",
+			"HI",
+			"IA",
+			"ID",
+			"IL",
+			"IN",
+			"KS",
+			"KY",
+			"LA",
+			"MA",
+			"MD",
+			"ME",
+			"MI",
+			"MN",
+			"MO",
+			"MS",
+			"MT",
+			"NC",
+			"ND",
+			"NE",
+			"NH",
+			"NJ",
+			"NM",
+			"NV",
+			"NY",
+			"OH",
+			"OK",
+			"OR",
+			"PA",
+			"RI",
+			"SC",
+			"SD",
+			"TN",
+			"TX",
+			"UT",
+			"VA",
+			"VT",
+			"WA",
+			"WI",
+			"WV",
+			"WY"
+		];
 		return (
 			<React.Fragment>
 				<Context.Consumer>
@@ -227,18 +276,13 @@ export default class SignUp extends Component {
 											id="inputState"
 											className="form-control">
 											<option value>State</option>
-											<option>FL</option>
-											<option>GA</option>
-											<option>NY</option>
-											<option>CA</option>
-											<option>TX</option>
-											<option>DE</option>
-											<option>AR</option>
-											<option>CO</option>
-											<option>AZ</option>
-											<option>CT</option>
-											<option>AK</option>
-											<option>HI</option>
+											{USstates.map((state, index) => {
+												return (
+													<option key={index}>
+														{state}
+													</option>
+												);
+											})}
 										</select>
 									</div>
 
@@ -290,11 +334,12 @@ export default class SignUp extends Component {
 									onClick={event => {
 										this.setState({ user });
 										if (this.handleRequest(event)) {
-											// if (actions.isLegalUser(user)) {
-											// 	this.props.history.push(
-											// 		"/userinfo/"
-											// 	);
-											// }
+											actions.createUser(user);
+											if (actions.isLegalUser(user)) {
+												this.props.history.push(
+													"/userinfo/"
+												);
+											}
 										}
 									}}>
 									Create Account

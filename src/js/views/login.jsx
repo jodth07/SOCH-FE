@@ -11,7 +11,7 @@ export class Login extends Component {
 		super();
 		this.state = {
 			username: "",
-			email: ""
+			password: ""
 		};
 		this.accessState = this.accessState.bind(this);
 	}
@@ -23,10 +23,10 @@ export class Login extends Component {
 	handleRequest(event) {
 		event.preventDefault();
 
-		if (this.nameTextInput.value && this.emailTextInput.value) {
+		if (this.nameTextInput.value && this.passwordTextInput.value) {
 			const state = this.accessState();
 			state.username = this.nameTextInput.value;
-			state.email = this.emailTextInput.value;
+			state.password = this.passwordTextInput.value;
 			this.setState(state);
 			return true;
 		}
@@ -59,9 +59,9 @@ export class Login extends Component {
 												<div className="form-group">
 													<label>Password</label>
 													<input
-														type="email"
+														type="password"
 														ref={ref =>
-															(this.emailTextInput = ref)
+															(this.passwordTextInput = ref)
 														}
 														className="form-control"
 														placeholder="PassWord"
