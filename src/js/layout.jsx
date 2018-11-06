@@ -10,7 +10,6 @@ import { Footer } from "./component/footer.jsx";
 import ArtistPage from "./views/artist.jsx";
 import Products from "./views/products.jsx";
 import Styles from "./views/styles.jsx";
-import ItemView from "./views/itemView.jsx";
 
 import Login from "./views/login.jsx";
 import SignUp from "./views/signup.jsx";
@@ -33,16 +32,7 @@ export class Layout extends React.Component {
 							<Route path="/artist" component={ArtistPage} />
 
 							<Route path="/products" component={Products} />
-							<Route
-								path="/product/:productId"
-								component={ItemView}
-							/>
-
 							<Route path="/styles" component={Styles} />
-							<Route
-								path="/service/:serviceId"
-								component={ItemView}
-							/>
 
 							<Route path="/login" component={Login} />
 							<Route path="/signup" component={SignUp} />

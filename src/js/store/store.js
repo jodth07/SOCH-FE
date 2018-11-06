@@ -253,8 +253,6 @@ const getState = scope => {
 				}
 			],
 
-			cart: [],
-
 			users: [
 				{
 					session: false,
@@ -305,6 +303,10 @@ const getState = scope => {
 					intersts: []
 				},
 
+				cart: [],
+
+				stagedItem: {},
+
 				loggedIn: false
 			}
 		},
@@ -344,7 +346,6 @@ const getState = scope => {
 				let s_user = store.users.filter(
 					_user => _user.username == c_user.username
 				)[0];
-				console.log(s_user);
 
 				// set user session
 				if (s_user && s_user.password === c_user.password) {
@@ -353,6 +354,37 @@ const getState = scope => {
 					scope.setState({ store });
 					return true;
 				}
+			},
+
+			upStage: item => {
+				let store = scope.state.store;
+				store.session.stagedItem = item;
+				scope.setState({ store });
+				return true;
+			},
+
+			unStage: () => {
+				let store = scope.state.store;
+				store.session.stagedItem = {};
+				scope.setState({ store });
+			},
+
+			addToCart: item => {
+				let store = scope.state.store;
+				store.session.cart.push(item);
+				scope.setState({ store });
+			},
+
+			removeFromCart: item => {
+				let store = scope.state.store;
+				store.session.cart.push(item);
+				scope.setState({ store });
+			},
+
+			emptyCart: () => {
+				let store = scope.state.store;
+				store.session.cart = [];
+				scope.setState({ store });
 			}
 		}
 	};

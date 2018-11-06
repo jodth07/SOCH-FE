@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../component/card.jsx";
 import { Context } from "../store/appContext.jsx";
+import Modal from "../component/modal.jsx";
 
 //create your first component
 export default class Products extends Component {
@@ -20,12 +21,32 @@ export default class Products extends Component {
 						return (
 							<div>
 								{store.products.map((product, index) => {
-									return <Card key={index} item={product} />;
+									return (
+										<div key={index}>
+											<Card
+												item={product}
+												viewItem={() =>
+													this.setState({
+														showModal: true,
+														key: product.id
+													})
+												}
+											/>
+										</div>
+									);
 								})}
 							</div>
 						);
 					}}
 				</Context.Consumer>
+				<Modal
+					show={this.state.showModal}
+					onClose={() =>
+						this.setState({
+							showModal: false
+						})
+					}
+				/>
 			</div>
 		);
 	}
