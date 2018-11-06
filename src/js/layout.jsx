@@ -7,15 +7,13 @@ import Store from "./store/appContext.jsx";
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 
-import Artists from "./views/artists.jsx";
-import ArtistBio from "./views/artistBio.jsx";
+import ArtistPage from "./views/artist.jsx";
 import Products from "./views/products.jsx";
-import ProductBio from "./views/productBio.jsx";
-import Services from "./views/services.jsx";
-import ServiceBio from "./views/serviceBio.jsx";
+import Styles from "./views/styles.jsx";
 import ItemView from "./views/itemView.jsx";
 
 import Login from "./views/login.jsx";
+import SignUp from "./views/signup.jsx";
 import Checkout from "./views/checkout.jsx";
 
 import Home from "./views/home.jsx";
@@ -31,11 +29,7 @@ export class Layout extends React.Component {
 						<Switch>
 							<Route exact path="/" component={Home} />
 
-							<Route path="/artists" component={Artists} />
-							{/* <Route
-								path="/artist/:artistBio"
-								component={ArtistBio}
-							/> */}
+							<Route path="/artist" component={ArtistPage} />
 
 							<Route path="/products" component={Products} />
 							<Route
@@ -43,13 +37,15 @@ export class Layout extends React.Component {
 								component={ItemView}
 							/>
 
-							<Route path="/services" component={Services} />
+							<Route path="/styles" component={Styles} />
 							<Route
 								path="/service/:serviceId"
 								component={ItemView}
 							/>
 
 							<Route path="/login" component={Login} />
+							<Route path="/signup" component={SignUp} />
+
 							<Route path="/checkout" component={Checkout} />
 
 							<Route default render={() => <h1>Not found!</h1>} />

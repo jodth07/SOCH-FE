@@ -1,12 +1,29 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+import { withRouter } from "react-router-dom";
+
+import { Context } from "../store/appContext.jsx";
 
 //create your first component
-export default class ItemView extends Component {
+class ItemView extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			item: {}
+		};
+	}
+
 	render() {
 		return (
-			<div className="text-center mt-5">
-				<h1>Single Item (Product or Service View) Page</h1>
+			<div>
+				<h2>Here will be the Item Views</h2>
 			</div>
 		);
 	}
 }
+
+ItemView.propTypes = {};
+
+//create your first component
+export default ItemView;

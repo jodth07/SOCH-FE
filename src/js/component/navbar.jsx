@@ -40,8 +40,8 @@ export class Navbar extends React.Component {
 							</li>
 
 							<li className="nav-item">
-								<Link className="nav-link" to={"/services"}>
-									Services
+								<Link className="nav-link" to={"/styles"}>
+									Styles
 								</Link>
 							</li>
 

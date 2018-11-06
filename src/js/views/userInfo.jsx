@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/login.css";
-
-import { Link } from "react-router-dom";
-
+// import {LogingIn} from "../component/loginIn";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 
@@ -57,14 +55,14 @@ export class Login extends Component {
 												</div>
 
 												<div className="form-group">
-													<label>Password</label>
+													<label>Email Address</label>
 													<input
 														type="email"
 														ref={ref =>
 															(this.emailTextInput = ref)
 														}
 														className="form-control"
-														placeholder="PassWord"
+														placeholder="email "
 													/>
 												</div>
 
@@ -82,7 +80,7 @@ export class Login extends Component {
 																)
 															) {
 																this.props.history.push(
-																	"/userinfo/"
+																	"/"
 																);
 															}
 														}
@@ -90,11 +88,6 @@ export class Login extends Component {
 													className="btn btn-primary">
 													Submit
 												</button>
-												<Link
-													to={"/signup/"}
-													className="btn btn-primary float-right">
-													create an account
-												</Link>
 											</form>
 										</div>
 									</div>

@@ -10,7 +10,7 @@ import slide13 from "../../img/slide_13.jpg";
 const getState = scope => {
 	return {
 		store: {
-			items_1: [
+			carouselItems: [
 				{
 					src: slide10,
 					altText: "Artists",
@@ -25,14 +25,15 @@ const getState = scope => {
 				},
 				{
 					src: slide12,
-					altText: "Services",
-					title: "services",
-					caption: "Services"
+					altText: "Styles",
+					title: "Styles",
+					caption: "styles"
 				}
 			],
 
 			products: [
 				{
+					id: 13,
 					type: "product",
 					link: "products",
 					image: slide1,
@@ -43,6 +44,7 @@ const getState = scope => {
 						"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
 				},
 				{
+					id: 14,
 					type: "product",
 					link: "products",
 					image: slide2,
@@ -51,6 +53,7 @@ const getState = scope => {
 						"survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset"
 				},
 				{
+					id: 15,
 					type: "product",
 					link: "products",
 					image: slide3,
@@ -59,6 +62,7 @@ const getState = scope => {
 						"sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 				},
 				{
+					id: 16,
 					type: "product",
 					link: "products",
 					image: slide1,
@@ -67,6 +71,7 @@ const getState = scope => {
 						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It ha"
 				},
 				{
+					id: 17,
 					type: "product",
 					link: "products",
 					image: slide2,
@@ -75,6 +80,7 @@ const getState = scope => {
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
 				},
 				{
+					id: 18,
 					type: "product",
 					link: "products",
 					image: slide3,
@@ -83,6 +89,7 @@ const getState = scope => {
 						"Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
 				},
 				{
+					id: 19,
 					type: "product",
 					link: "products",
 					image: slide1,
@@ -91,6 +98,7 @@ const getState = scope => {
 						'Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. '
 				},
 				{
+					id: 20,
 					type: "product",
 					link: "products",
 					image: slide2,
@@ -99,6 +107,7 @@ const getState = scope => {
 						"This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,"
 				},
 				{
+					id: 21,
 					type: "product",
 					link: "products",
 					image: slide3,
@@ -107,85 +116,104 @@ const getState = scope => {
 						'"Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'
 				}
 			],
-			services: [
+
+			styles: [
 				{
-					type: "service",
-					link: "services",
+					id: 1,
+					name: "Hair style 1",
+					link: "style/",
+					type: "style",
 					image: slide1,
 					duration: 60,
-					title: "Hair Service 1",
+					title: "Hair style 1",
 					description:
 						"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 2,
+					name: "Hair style 2",
+					link: "style_Hair style 2",
+					type: "style",
 					image: slide2,
 					duration: 60,
-					title: "Hair Service 2",
+					title: "Hair style 2",
 					description:
 						"survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset"
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 3,
+					name: "Hair style 3",
+					link: "style/",
+					type: "style",
 					image: slide3,
 					duration: 60,
-					title: "Hair Service 3",
+					title: "Hair style 3",
 					description:
 						"sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 4,
+					name: "Hair style 4",
+					link: "style/", // + name,
+					type: "style",
 					image: slide1,
 					duration: 60,
-					title: "Hair Service 4",
+					title: "Hair style 4",
 					description:
 						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It ha"
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 5,
+					name: "Hair style 5",
+					link: "style/", // + name,
+					type: "style",
 					image: slide2,
 					duration: 60,
-					title: "Hair Service 5",
+					title: "Hair style 5",
 					description:
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 6,
+					name: "Hair style 6",
+					link: "style/", // + name,
+					type: "style",
 					image: slide3,
 					duration: 60,
-					title: "Hair Service 6",
+					title: "Hair style 6",
 					description:
 						"Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 7,
+					title: "Hair style 7",
+					name: "Hair style 7",
+					link: "style/", // + name,
+					type: "style",
 					image: slide1,
 					duration: 60,
-					title: "Hair Service 7",
 					description:
 						'Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. '
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 8,
+					name: "Hair style 8",
+					link: "style/", // + name,
+					type: "style",
 					image: slide2,
 					duration: 60,
-					title: "Hair Service 8",
+					title: "Hair style 8",
 					description:
 						"This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,"
 				},
 				{
-					type: "service",
-					link: "services",
+					id: 9,
+					name: "Hair style 9",
+					type: "style",
+					link: "style/", // + name,
 					image: slide3,
 					duration: 60,
-					title: "Hair Service 9",
+					title: "Hair style 9",
 					description:
 						'"Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'
 				}
@@ -193,6 +221,7 @@ const getState = scope => {
 
 			featured: [
 				{
+					id: 10,
 					type: "Artist",
 					name: "Mary Leytie",
 					date: "Nov, 2018",
@@ -202,15 +231,18 @@ const getState = scope => {
 					img: slide12
 				},
 				{
-					type: "Service",
+					id: 11,
+					type: "Style",
 					name: "Layered Hair",
+
 					date: "Nov, 2018",
 					description:
 						"This is a wider card with supporting text below as a natural lead-in to additional content.",
-					link: "/services",
+					link: "/styles",
 					img: slide11
 				},
 				{
+					id: 12,
 					type: "Product",
 					name: "Olaplex Hair Perfector",
 					date: "Nov, 2018",
@@ -221,18 +253,45 @@ const getState = scope => {
 				}
 			],
 
+			cart: [],
+
+			users: [
+				{
+					session: false,
+					stylist: false,
+					username: "rigo",
+					password: "rigo",
+					firstname: "Rigo",
+					lastname: "Fuentes",
+					address: "1234 American Way Miami, Fl. 33126",
+					country: "usa",
+					state: "fl",
+					zipCode: "33330",
+					cart: [],
+					appointments: [],
+					purchaseHistory: [],
+					intersts: []
+				},
+				{
+					session: false,
+					artist: true,
+					username: "monty",
+					password: "python",
+					firstname: "Monty",
+					lastname: "Python",
+					address: "1234 American Way Miami, Fl. 33126",
+					cart: [],
+					appointments: [],
+					purchaseHistory: [],
+					intersts: []
+				}
+			],
+
 			session: {
 				username: "Rigo",
 				email: "rigo",
-				loggedIn: false,
-				user: {
-					firstname: "Rigo",
-					lastname: "Fuentes",
-					address: "1234 American Way Miami, Fl. 33126"
-				}
-			},
-
-			cart: []
+				loggedIn: false
+			}
 		},
 		actions: {
 			changeColor: (element, color) => {

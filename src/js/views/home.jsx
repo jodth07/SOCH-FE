@@ -25,7 +25,9 @@ class Home extends Component {
 							return (
 								<div>
 									<div className="container">
-										<MyCaroursel items={store.items_1} />
+										<MyCaroursel
+											items={store.carouselItems}
+										/>
 									</div>
 
 									<div className="container mt-4">
