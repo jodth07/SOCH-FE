@@ -18,31 +18,20 @@ export class Login extends Component {
 		return this.state;
 	};
 
-	handleRequest(event) {
-		event.preventDefault();
-
-		if (this.nameTextInput.value && this.emailTextInput.value) {
-			const state = this.accessState();
-			state.username = this.nameTextInput.value;
-			state.email = this.emailTextInput.value;
-			this.setState(state);
-			return true;
-		}
-	}
-
 	render() {
 		const user = this.state;
 		return (
 			<React.Fragment>
 				<Context.Consumer>
 					{({ store, actions }) => {
+						var user = store.session.user;
 						return (
 							<div className="mainer p-5">
-								<div className="row justify-content-center mt-5">
+								<div className="row container mt-5">
 									<div className="bg-light p-5 col-6 rounded">
-										<div className="container ">
-											<h1>This is User Info Page</h1>
-										</div>
+										<h3>First Name : {user.firstname}</h3>
+										<h3>Last Name : {user.lastname}</h3>
+										<h4>Username : {user.username}</h4>
 									</div>
 								</div>
 							</div>

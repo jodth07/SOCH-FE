@@ -89,7 +89,7 @@ export class Navbar extends React.Component {
 															{
 																store.session
 																	.user
-																	.firstName
+																	.firstname
 															}
 															!{" "}
 														</a>

@@ -289,11 +289,20 @@ const getState = scope => {
 
 			session: {
 				user: {
-					username: "Rigo",
-					email: "rigo",
+					session: false,
+					stylist: false,
+					username: "rigo",
 					password: "rigo",
-					firstName: "Rigo",
-					lastName: "Berto"
+					firstname: "Rigo",
+					lastname: "Fuentes",
+					address: "1234 American Way Miami, Fl. 33126",
+					country: "usa",
+					state: "fl",
+					zipCode: "33330",
+					cart: [],
+					appointments: [],
+					purchaseHistory: [],
+					intersts: []
 				},
 
 				loggedIn: false
@@ -327,13 +336,20 @@ const getState = scope => {
 				scope.setState({ store });
 			},
 
-			isLegalUser: user => {
+			isLegalUser: c_user => {
+				// update store info
 				let store = scope.state.store;
-				if (
-					user.username === store.session.user.username &&
-					user.password === store.session.user.password
-				) {
+
+				// get user from store
+				let s_user = store.users.filter(
+					_user => _user.username == c_user.username
+				)[0];
+				console.log(s_user);
+
+				// set user session
+				if (s_user && s_user.password === c_user.password) {
 					store.session.loggedIn = true;
+					store.session.user = s_user;
 					scope.setState({ store });
 					return true;
 				}
