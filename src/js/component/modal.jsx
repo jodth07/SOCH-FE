@@ -49,9 +49,10 @@ class Modal extends React.Component {
 										<button
 											type="button"
 											className="btn btn-secondary"
-											onClick={() =>
-												this.props.onClose()
-											}>
+											onClick={() => {
+												actions.unStage();
+												this.props.onClose();
+											}}>
 											close
 										</button>
 										<button
@@ -59,6 +60,7 @@ class Modal extends React.Component {
 											className="btn btn-primary"
 											data-dismiss="modal"
 											onClick={() => {
+												actions.addToCart(c_item);
 												actions.unStage();
 												this.props.onClose();
 											}}>

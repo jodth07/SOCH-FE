@@ -45,7 +45,7 @@ export class Navbar extends React.Component {
 								</Link>
 							</li>
 
-							<li className="nav-item dropdown">
+							{/* <li className="nav-item dropdown">
 								<a
 									className="nav-link dropdown-toggle"
 									href="#"
@@ -71,33 +71,39 @@ export class Navbar extends React.Component {
 										Something else here
 									</a>
 								</div>
-							</li>
+							</li> */}
 						</ul>
 
 						<form className="form-inline my-2 my-lg-0">
-							<ul className="navbar-nav mr-auto">
-								<Context.Consumer>
-									{({ store }) => {
-										if (store.session.loggedIn) {
-											return (
+							<Context.Consumer>
+								{({ store }) => {
+									if (store.session.loggedIn) {
+										return (
+											<ul className="navbar-nav mr-auto">
 												<li className="nav-item">
-													<Link to="/userInfo">
-														<a
-															className="nav-link"
-															href="">
-															Hello{" "}
-															{
-																store.session
-																	.user
-																	.firstname
-															}
-															!{" "}
-														</a>
+													<Link
+														to="/userInfo"
+														className="nav-link">
+														Hello{" "}
+														{
+															store.session.user
+																.firstname
+														}
+														!{" "}
 													</Link>
 												</li>
-											);
-										} else {
-											return (
+												<li className="nav-item">
+													<Link
+														to="/"
+														className="nav-link">
+														Logout{" "}
+													</Link>
+												</li>
+											</ul>
+										);
+									} else {
+										return (
+											<ul className="navbar-nav mr-auto">
 												<li className="nav-item">
 													<Link
 														className="nav-link"
@@ -105,14 +111,15 @@ export class Navbar extends React.Component {
 														Login | Signup
 													</Link>
 												</li>
-											);
-										}
-									}}
-								</Context.Consumer>
-
+											</ul>
+										);
+									}
+								}}
+							</Context.Consumer>
+							<ul className="navbar-nav mr-auto">
 								<li className="nav-item">
-									<Link className="nav-link" to={"/checkout"}>
-										checkout
+									<Link className="nav-link" to={"/cart"}>
+										Cart
 									</Link>
 								</li>
 							</ul>
