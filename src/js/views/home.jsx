@@ -35,6 +35,7 @@ class Home extends Component {
 											return (
 												<Featurette
 													key={index}
+													index={index}
 													item={item}
 												/>
 											);

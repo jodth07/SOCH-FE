@@ -9,21 +9,27 @@ class Cart extends Component {
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
-					if (store.session.cart.length <= 0) {
-						return (
-							<div className="card p-3">
+					return store.session.cart.length <= 0 ? (
+						<div className="row container">
+							<div className="card p-3 col-8">
 								<h2>Your current cart is Empty</h2>
 							</div>
-						);
-					} else {
-						return (
-							<div className="card p-3">
+							<div className="col-4">
+								<h2>calculations</h2>
+							</div>
+						</div>
+					) : (
+						<div className="row container">
+							<div className="card col-9 p-3">
 								{store.session.cart.map((item, index) => {
 									return <CartItem key={index} item={item} />;
 								})}
 							</div>
-						);
-					}
+							<div className="col-3">
+								<h2>calculations</h2>
+							</div>
+						</div>
+					);
 				}}
 			</Context.Consumer>
 		);

@@ -11,23 +11,28 @@ class CartItem extends Component {
 			<Context.Consumer>
 				{({ store, actions }) => {
 					return (
-						<div className="container">
-							<div className="row">
-								<img className="col-2" src={cartItem.image} />
-								<div className="col-6">
-									<h2>{cartItem.name}</h2>
-									<h3>{cartItem.price}</h3>
-								</div>
-								<div className="col-1">
-									<h3>{cartItem.price}</h3>
-								</div>
-								<div className="col-1">
-									<h3>{cartItem.quantity}</h3>
-								</div>
-								<button className="col-2">
-									<p>remove item(s)</p>
-								</button>
+						<div className="row">
+							<img
+								className="col-2"
+								src={cartItem.image}
+								style={{
+									width: 12 + "em",
+									height: 6 + "em"
+								}}
+							/>
+							<div className="col-6">
+								<h2>{cartItem.name}</h2>
+								<h3>{cartItem.price}</h3>
 							</div>
+							<div className="col-1">
+								<h3>{cartItem.price}</h3>
+							</div>
+							<div className="col-1">
+								<input placeholder={cartItem.quantity} />
+							</div>
+							<button className="col-2">
+								<p>remove item(s)</p>
+							</button>
 						</div>
 					);
 				}}

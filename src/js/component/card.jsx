@@ -4,14 +4,6 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 
 class Card extends Component {
-	// constructor() {
-	// 	super();
-	// 	this.state = {
-	// 		showModal: false,
-	// 		key: ""
-	// 	};
-	// }
-
 	render() {
 		var cardItem = this.props.item;
 
@@ -22,7 +14,10 @@ class Card extends Component {
 						<div className="card p-3">
 							<img
 								className="card-img-top"
-								src={cardItem.image}
+								src={
+									"http://127.0.0.1:8000/api/medias/" +
+									cardItem.image
+								}
 								alt="Card image cap"
 							/>
 							<blockquote className="blockquote mb-0 card-body">

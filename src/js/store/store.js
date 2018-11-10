@@ -7,6 +7,8 @@ import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
 import slide13 from "../../img/slide_13.jpg";
 
+import { getProducts } from "./getters.jsx";
+
 const getState = scope => {
 	return {
 		store: {
@@ -345,6 +347,10 @@ const getState = scope => {
 			}
 		},
 		actions: {
+			updateProducts: () => {
+				getProducts(scope);
+			},
+
 			changeColor: (element, color) => {
 				let store = scope.state.store;
 				store.demo[element].background = color;
