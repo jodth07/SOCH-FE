@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../../styles/login.css";
-// import {LogingIn} from "../component/loginIn";
+
+import { Link } from "react-router-dom";
+
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 
@@ -9,7 +11,7 @@ export class Login extends Component {
 		super();
 		this.state = {
 			username: "",
-			email: ""
+			password: ""
 		};
 		this.accessState = this.accessState.bind(this);
 	}
@@ -21,10 +23,10 @@ export class Login extends Component {
 	handleRequest(event) {
 		event.preventDefault();
 
-		if (this.nameTextInput.value && this.emailTextInput.value) {
+		if (this.nameTextInput.value && this.passwordTextInput.value) {
 			const state = this.accessState();
 			state.username = this.nameTextInput.value;
-			state.email = this.emailTextInput.value;
+			state.password = this.passwordTextInput.value;
 			this.setState(state);
 			return true;
 		}
@@ -55,14 +57,14 @@ export class Login extends Component {
 												</div>
 
 												<div className="form-group">
-													<label>Email Address</label>
+													<label>Password</label>
 													<input
-														type="email"
+														type="password"
 														ref={ref =>
-															(this.emailTextInput = ref)
+															(this.passwordTextInput = ref)
 														}
 														className="form-control"
-														placeholder="email "
+														placeholder="PassWord"
 													/>
 												</div>
 
@@ -80,7 +82,7 @@ export class Login extends Component {
 																)
 															) {
 																this.props.history.push(
-																	"/"
+																	"/userinfo/"
 																);
 															}
 														}
@@ -88,6 +90,11 @@ export class Login extends Component {
 													className="btn btn-primary">
 													Submit
 												</button>
+												<Link
+													to={"/signup/"}
+													className="btn btn-primary float-right">
+													create an account
+												</Link>
 											</form>
 										</div>
 									</div>

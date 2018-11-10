@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+
 import Card from "../component/card.jsx";
 import { Context } from "../store/appContext.jsx";
 import Modal from "../component/modal.jsx";
 
 //create your first component
-export default class Products extends Component {
+export default class Styles extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -17,22 +18,21 @@ export default class Products extends Component {
 		return (
 			<div className="card-columns container">
 				<Context.Consumer>
-					{({ store, actions }) => {
+					{({ store }) => {
 						return (
 							<div>
-								{store.products.map((product, index) => {
+								{store.styles.map((style, index) => {
 									return (
-										<div key={index}>
-											<Card
-												item={product}
-												viewItem={() =>
-													this.setState({
-														showModal: true,
-														key: product.id
-													})
-												}
-											/>
-										</div>
+										<Card
+											key={index}
+											item={style}
+											viewItem={() =>
+												this.setState({
+													showModal: true,
+													key: style.id
+												})
+											}
+										/>
 									);
 								})}
 							</div>
