@@ -30,7 +30,7 @@ export class Layout extends React.Component {
 						<Switch>
 							<Route exact path="/" component={Home} />
 
-							<Route path="/artist" component={ArtistPage} />
+							<Route path="/stylists" component={ArtistPage} />
 
 							<Route path="/products" component={Products} />
 							<Route path="/styles" component={Styles} />

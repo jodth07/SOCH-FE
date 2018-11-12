@@ -1,6 +1,6 @@
 import React from "react";
 import getState from "./store.js";
-import { getProducts, getStyles } from "./getters.jsx";
+import loadGetters from "./getters.jsx";
 
 export const Context = React.createContext(null);
 
@@ -12,8 +12,7 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			getProducts(this);
-			getStyles(this);
+			loadGetters(this);
 		}
 
 		render() {

@@ -28,8 +28,8 @@ export class Navbar extends React.Component {
 						id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item">
-								<Link className="nav-link" to={"/artists"}>
-									Artists
+								<Link className="nav-link" to={"/stylists"}>
+									Stylists
 								</Link>
 							</li>
 

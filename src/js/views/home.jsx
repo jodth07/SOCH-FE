@@ -22,6 +22,9 @@ class Home extends Component {
 				<main role="main mt-4" style={{ backgroundColor: "white" }}>
 					<Context.Consumer>
 						{({ store }) => {
+							{
+								// console.log(store.featured);
+							}
 							return (
 								<div>
 									<div className="container">
@@ -29,17 +32,17 @@ class Home extends Component {
 											items={store.carouselItems}
 										/>
 									</div>
-
 									<div className="container mt-4">
-										{store.featured.map((item, index) => {
-											return (
-												<Featurette
-													key={index}
-													index={index}
-													item={item}
-												/>
-											);
-										})}
+										{Object.values(store.featured).map(
+											(item, index) => {
+												return (
+													<Featurette
+														key={index}
+														item={item}
+													/>
+												);
+											}
+										)}
 									</div>
 								</div>
 							);
