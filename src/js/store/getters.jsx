@@ -1,3 +1,18 @@
+const token =
+	"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTQyMDcwMzg4LCJlbWFpbCI6IiJ9.XhkzmrKN7MIJBcFddRtHDqTBbagJm6DRYh6dEpn-VIU";
+
+const HEADER = {
+	headers: new Headers({
+		Authorization: "JWT " + token,
+		"Content-Type": "application/json"
+	})
+};
+
+// HEADER = {
+// 	"Content-Type": "application/json",
+// 	Authorization: token
+// };
+
 export function getProducts(scope) {
 	let store = scope.state.store;
 	fetch("http://127.0.0.1:8000/api/products/")
