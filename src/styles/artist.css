@@ -1,0 +1,23 @@
+.shorten{
+    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.artist_name{
+    color: white;
+    text-align: left;
+    margin-left: 120px;
+}
+
+.left{
+    text-align: left;
+}
+
+.float-right{
+    color: white;
+    height: 50%;
+    width: 50%;
+    font-style: italic;
+    padding-top: 100px;
+}
