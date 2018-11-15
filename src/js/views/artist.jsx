@@ -26,22 +26,70 @@ export default class ArtistPage extends Component {
 					</div>
 				</div>
 				<div>
-					<p className="artistServices">
-						<h1> My Services </h1>
-						<ul className="list-group">
+					<span className="artistServices">
+						<h1> Special Events </h1>
+						<ul className="list-group" id="specialE">
 							<li className="list-group-item">
-								Brazilian Keratin Treatment
+								Weddings
+								<button
+									type="button"
+									className="btn btn-dark"
+									id="aButton">
+									Buy
+								</button>
 							</li>
 							<li className="list-group-item">
-								Wash and Silk press
+								Photoshoots
+								<button
+									type="button"
+									className="btn btn-dark"
+									id="aButton">
+									Buy
+								</button>
 							</li>
 							<li className="list-group-item">
-								Single Plat braids
+								Prom/Homecoming
+								<button
+									type="button"
+									className="btn btn-dark"
+									id="aButton">
+									Buy
+								</button>
 							</li>
-							<li className="list-group-item">Formal Updo</li>
-							<li className="list-group-item">Beach waves</li>
 						</ul>
-					</p>
+					</span>
+					<span className="artistServices">
+						<h1> Special Promotions </h1>
+						<ul className="list-group" id="specialE">
+							<li className="list-group-item">
+								$20 off Indian Wavy hair
+								<button
+									type="button"
+									className="btn btn-dark"
+									id="aButton">
+									Buy
+								</button>
+							</li>
+							<li className="list-group-item">
+								10% Off Morrocan Oil conditioner
+								<button
+									type="button"
+									className="btn btn-dark"
+									id="aButton">
+									Buy
+								</button>
+							</li>
+							<li className="list-group-item">
+								Free Blowdry with Purchase of Shampoo
+								<button
+									type="button"
+									className="btn btn-dark"
+									id="aButton">
+									Buy
+								</button>
+							</li>
+						</ul>
+					</span>
 				</div>
 			</div>
 		);
