@@ -4,6 +4,7 @@ import "../../styles/login.css";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext.jsx";
+
 import PropTypes from "prop-types";
 
 export class Login extends Component {
@@ -71,6 +72,7 @@ export class Login extends Component {
 												<button
 													type="submit"
 													onClick={event => {
+														actions.getAuth(user);
 														if (
 															this.handleRequest(
 																event
