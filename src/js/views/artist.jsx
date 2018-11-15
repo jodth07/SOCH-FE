@@ -4,11 +4,10 @@ import React, { Component } from "react";
 export default class ArtistPage extends Component {
 	render() {
 		return (
-			<div className="text-center mt-5">
-				<h1>Artists Page</h1>
+			<div className="text-center mt-1">
 				<div
 					className="jumbotron jumbotron-fluid shorten"
-					style={{ backgroundColor: "black" }}>
+					style={{ backgroundColor: "blue" }}>
 					<div className="container">
 						<h4 className="float-right" style={{ color: "white" }}>
 							I am a skilled stylist who specializes in wavy and
@@ -26,7 +25,7 @@ export default class ArtistPage extends Component {
 					</div>
 				</div>
 				<div>
-					<p className="artistServices">
+					<div className="artistServices">
 						<h1> My Services </h1>
 						<ul className="list-group">
 							<li className="list-group-item">
@@ -41,7 +40,7 @@ export default class ArtistPage extends Component {
 							<li className="list-group-item">Formal Updo</li>
 							<li className="list-group-item">Beach waves</li>
 						</ul>
-					</p>
+					</div>
 				</div>
 			</div>
 		);

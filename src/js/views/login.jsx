@@ -72,21 +72,14 @@ export class Login extends Component {
 												<button
 													type="submit"
 													onClick={event => {
-														actions.getAuth(user);
 														if (
-															this.handleRequest(
-																event
+															actions.getAuth(
+																user
 															)
 														) {
-															if (
-																actions.isLegalUser(
-																	user
-																)
-															) {
-																this.props.history.push(
-																	"/userinfo/"
-																);
-															}
+															this.props.history.push(
+																"/userinfo/"
+															);
 														}
 													}}
 													className="btn btn-primary">

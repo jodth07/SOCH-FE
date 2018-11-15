@@ -100,6 +100,9 @@ const getState = scope => {
 
 			getAuth: user => {
 				getAuthkey(scope, user.username, user.password);
+				// if (scope.session.token.length > 1) {
+				return true;
+				// }
 			},
 
 			changeColor: (element, color) => {
