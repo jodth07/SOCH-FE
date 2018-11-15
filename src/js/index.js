@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 //include your index.scss file into the bundle
 import "../styles/index.css";
+import "../styles/artist.css";
 import "base-64";
 
 //import your own components
