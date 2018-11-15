@@ -21,3 +21,20 @@
     font-style: italic;
     padding-top: 100px;
 }
+
+
+.artistServices{
+    text-align: left;
+    padding-left: 20px;
+}
+#specialE{
+    width: 60%;
+    border-color: black;
+    border: 10px solid rgba(0, 0, 0, 0.125);
+   
+}
+
+#aButton{
+    
+    float: right;
+}
