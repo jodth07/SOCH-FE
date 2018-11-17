@@ -2,6 +2,7 @@
     height: 300px;
     padding-top: 15px;
     padding-bottom: 0px;
+    background-position: center;
 }
 
 .artist_name{
@@ -30,11 +31,64 @@
 #specialE{
     width: 60%;
     border-color: black;
-    border: 10px solid rgba(0, 0, 0, 0.125);
-   
+    border: 15px solid black;
+   border-style: groove;
+   margin-left: 20px;
 }
 
 #aButton{
     
     float: right;
 }
+
+/*.photoSample{*/
+/*    height: 100px;*/
+/*    width: 200px;*/
+/*}*/
+.rowA {
+  display: flex;
+  flex-wrap: wrap;
+  /*padding: 0 4px;*/
+  float: right;
+  width: 33%;
+  position: static;
+  height: 150px;
+ 
+}
+/*.rowB {*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  padding: 0 4px;*/
+/*  float: right;*/
+ 
+/*}*/
+
+/*.column {*/
+  /*flex: 50%;*/
+/*  padding:none;*/
+  /*width: 200px;*/
+/*}*/
+
+.column img {
+  margin-top: -200px;
+  vertical-align: middle;
+  height: 150px;
+}
+
+.column {
+    float: left;
+    width: 35%;
+    padding: 10px;
+    /*margin:auto;*/
+    /*height: 300px;*/
+}
+
+#one{
+    /*margin-top: 50px;*/
+    margin-bottom: 90px;
+}
+
+.specialTitle{
+    margin-left: 20px;
+}
+
