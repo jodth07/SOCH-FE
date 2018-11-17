@@ -4,6 +4,7 @@ import "../../styles/login.css";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext.jsx";
+
 import PropTypes from "prop-types";
 
 export class Login extends Component {
@@ -72,19 +73,13 @@ export class Login extends Component {
 													type="submit"
 													onClick={event => {
 														if (
-															this.handleRequest(
-																event
+															actions.getAuth(
+																user
 															)
 														) {
-															if (
-																actions.isLegalUser(
-																	user
-																)
-															) {
-																this.props.history.push(
-																	"/userinfo/"
-																);
-															}
+															this.props.history.push(
+																"/userinfo/"
+															);
 														}
 													}}
 													className="btn btn-primary">

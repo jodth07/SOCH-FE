@@ -1,5 +1,4 @@
-const token =
-	"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTQyMDcwMzg4LCJlbWFpbCI6IiJ9.XhkzmrKN7MIJBcFddRtHDqTBbagJm6DRYh6dEpn-VIU";
+const token = "";
 
 const HEADER = {
 	headers: new Headers({
@@ -7,11 +6,6 @@ const HEADER = {
 		"Content-Type": "application/json"
 	})
 };
-
-// HEADER = {
-// 	"Content-Type": "application/json",
-// 	Authorization: token
-// };
 
 export function getProducts(scope) {
 	let store = scope.state.store;
@@ -21,7 +15,6 @@ export function getProducts(scope) {
 			store.products = data;
 			scope.setState({ store });
 		});
-	// .catch(error => console.log(error));
 }
 
 export function getStyles(scope) {
@@ -32,7 +25,6 @@ export function getStyles(scope) {
 			store.styles = data;
 			scope.setState({ store });
 		});
-	// .catch(error => console.log(error));
 }
 
 export function getCategories(scope) {
@@ -41,10 +33,8 @@ export function getCategories(scope) {
 		.then(response => response.json())
 		.then(data => {
 			store.categories = data;
-			// console.log(data);
 			scope.setState({ store });
 		});
-	// .catch(error => console.log(error));
 }
 
 export function getFeatured(scope) {
@@ -53,7 +43,6 @@ export function getFeatured(scope) {
 		.then(response => response.json())
 		.then(data => {
 			store.featured = data;
-			// console.log(data);
 			scope.setState({ store });
 		});
 }
@@ -63,4 +52,24 @@ export default function loadGetters(scope) {
 	getCategories(scope);
 	getProducts(scope);
 	getStyles(scope);
+}
+
+export function getAuthkey(scope, uname, pass) {
+	let store = scope.state.store;
+	fetch("http://127.0.0.1:8000/api/login/", {
+		method: "POST", // *GET, POST, PUT, DELETE, etc.
+		body: JSON.stringify({
+			username: uname,
+			password: pass
+		}), // data can be `string` or {object}!
+		headers: {
+			"Content-Type": "application/json"
+		}
+	})
+		.then(response => response.json())
+		.then(data => {
+			store.session.token = data;
+			console.log(data["token"]);
+			scope.setState({ store });
+		});
 }

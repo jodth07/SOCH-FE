@@ -3,7 +3,7 @@ import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
 import loadGetters from "./getters.jsx";
 
-import { getProducts } from "./getters.jsx";
+import { getProducts, getAuthkey } from "./getters.jsx";
 
 const getState = scope => {
 	return {
@@ -33,7 +33,7 @@ const getState = scope => {
 
 			styles: [], // Recieving from API
 
-			featured: {},
+			featured: {}, // Recieving from API
 
 			users: [
 				{
@@ -96,6 +96,13 @@ const getState = scope => {
 		actions: {
 			updateProducts: () => {
 				getProducts(scope);
+			},
+
+			getAuth: user => {
+				getAuthkey(scope, user.username, user.password);
+				// if (scope.session.token.length > 1) {
+				return true;
+				// }
 			},
 
 			changeColor: (element, color) => {
