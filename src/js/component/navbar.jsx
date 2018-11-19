@@ -44,40 +44,12 @@ export class Navbar extends React.Component {
 									Styles
 								</Link>
 							</li>
-
-							{/* <li className="nav-item dropdown">
-								<a
-									className="nav-link dropdown-toggle"
-									href="#"
-									id="navbarDropdown"
-									role="button"
-									data-toggle="dropdown"
-									aria-haspopup="true"
-									aria-expanded="false">
-									Dropdown
-								</a>
-
-								<div
-									className="dropdown-menu"
-									aria-labelledby="navbarDropdown">
-									<a className="dropdown-item" href="#">
-										Action
-									</a>
-									<a className="dropdown-item" href="#">
-										Another action
-									</a>
-									<div className="dropdown-divider" />
-									<a className="dropdown-item" href="#">
-										Something else here
-									</a>
-								</div>
-							</li> */}
 						</ul>
 
 						<form className="form-inline my-2 my-lg-0">
 							<Context.Consumer>
-								{({ store }) => {
-									if (store.session.loggedIn) {
+								{({ store, actions }) => {
+									if (store.session.logged_in) {
 										return (
 											<ul className="navbar-nav mr-auto">
 												<li className="nav-item">
@@ -92,7 +64,11 @@ export class Navbar extends React.Component {
 														!{" "}
 													</Link>
 												</li>
-												<li className="nav-item">
+												<li
+													className="nav-item"
+													onClick={() =>
+														actions.logout()
+													}>
 													<Link
 														to="/"
 														className="nav-link">
@@ -125,7 +101,6 @@ export class Navbar extends React.Component {
 							</ul>
 						</form>
 					</div>
-					{/* </div> */}
 				</nav>
 			</React.Fragment>
 		);

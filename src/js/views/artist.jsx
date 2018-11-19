@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export default class ArtistPage extends Component {
 	render() {
 		return (
-			<div className="text-center mt-1">
+			<div className="text-center container mt-1">
 				<div
 					className="jumbotron jumbotron-fluid shorten"
 					style={{ backgroundColor: "blue" }}>

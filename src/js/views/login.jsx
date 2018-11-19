@@ -4,14 +4,13 @@ import "../../styles/login.css";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext.jsx";
-
 import PropTypes from "prop-types";
 
 export class Login extends Component {
 	constructor() {
 		super();
 		this.state = {
-			username: "",
+			email: "",
 			password: ""
 		};
 		this.accessState = this.accessState.bind(this);
@@ -26,7 +25,7 @@ export class Login extends Component {
 
 		if (this.nameTextInput.value && this.passwordTextInput.value) {
 			const state = this.accessState();
-			state.username = this.nameTextInput.value;
+			state.email = this.nameTextInput.value;
 			state.password = this.passwordTextInput.value;
 			this.setState(state);
 			return true;
@@ -46,14 +45,14 @@ export class Login extends Component {
 										<div className="container ">
 											<form>
 												<div className="form-group">
-													<label>User Name</label>
+													<label>Email</label>
 													<input
-														type="userName"
+														type="email"
 														ref={ref =>
 															(this.nameTextInput = ref)
 														}
 														className="form-control"
-														placeholder="username"
+														placeholder="Email Address"
 													/>
 												</div>
 
@@ -73,13 +72,21 @@ export class Login extends Component {
 													type="submit"
 													onClick={event => {
 														if (
-															actions.getAuth(
-																user
+															this.handleRequest(
+																event
 															)
 														) {
-															this.props.history.push(
-																"/userinfo/"
+															actions.getAuth(
+																user
 															);
+															if (
+																store.session
+																	.logged_in
+															) {
+																this.props.history.push(
+																	"/userinfo/"
+																);
+															}
 														}
 													}}
 													className="btn btn-primary">

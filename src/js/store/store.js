@@ -3,7 +3,7 @@ import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
 import loadGetters from "./getters.jsx";
 
-import { getProducts, getAuthkey } from "./getters.jsx";
+import { getProducts, getAuthkey, getUserData } from "./getters.jsx";
 
 const getState = scope => {
 	return {
@@ -35,81 +35,30 @@ const getState = scope => {
 
 			featured: {}, // Recieving from API
 
-			users: [
-				{
-					session: false,
-					stylist: false,
-					username: "rigo",
-					password: "rigo",
-					firstname: "Rigo",
-					lastname: "Fuentes",
-					address: "1234 American Way Miami, Fl. 33126",
-					country: "usa",
-					state: "fl",
-					zipCode: "33330",
-					cart: [],
-					appointments: [],
-					purchaseHistory: [],
-					intersts: []
-				},
-				{
-					session: false,
-					artist: true,
-					username: "monty",
-					password: "python",
-					firstname: "Monty",
-					lastname: "Python",
-					address: "1234 American Way Miami, Fl. 33126",
-					cart: [],
-					appointments: [],
-					purchaseHistory: [],
-					intersts: []
-				}
-			],
-
 			session: {
 				token: "",
-				user: {
-					session: false,
-					stylist: false,
-					username: "rigo",
-					password: "rigo",
-					firstname: "Rigo",
-					lastname: "Fuentes",
-					address: "1234 American Way Miami, Fl. 33126",
-					country: "usa",
-					state: "fl",
-					zipCode: "33330",
-					cart: [],
-					appointments: [],
-					purchaseHistory: [],
-					intersts: []
-				},
-
-				cart: [],
+				user: {},
+				cart: {},
+				purchased: {},
 
 				stagedItem: {},
-
-				loggedIn: false
+				logged_in: false
 			}
 		},
 		actions: {
+			// products
 			updateProducts: () => {
 				getProducts(scope);
 			},
-
+			// Users
 			getAuth: user => {
-				getAuthkey(scope, user.username, user.password);
-				// if (scope.session.token.length > 1) {
+				getAuthkey(scope, user.email, user.password);
 				return true;
-				// }
+			},
+			getUserInfo: () => {
+				return;
 			},
 
-			changeColor: (element, color) => {
-				let store = scope.state.store;
-				store.demo[element].background = color;
-				scope.setState({ store });
-			},
 			addProductToCart: product => {
 				let usercart = scope.state.store;
 				usercart.cart.push(product);
@@ -178,6 +127,12 @@ const getState = scope => {
 			emptyCart: () => {
 				let store = scope.state.store;
 				store.session.cart = [];
+				scope.setState({ store });
+			},
+			logout: () => {
+				let store = scope.state.store;
+				store.session.token = "";
+				store.session.logged_in = false;
 				scope.setState({ store });
 			}
 		}
