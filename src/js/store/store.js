@@ -85,8 +85,12 @@ const getState = scope => {
 					headers: {
 						"Content-Type": "application/json"
 					}
+				}).then(response => {
+					if (response.ok) {
+						console.log(response.ok);
+						scope.state.actions.getAuth(user);
+					}
 				});
-				scope.state.actions.getAuth(user);
 			},
 
 			upStage: item => {

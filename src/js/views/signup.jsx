@@ -49,7 +49,7 @@ export default class SignUp extends Component {
 		return (
 			<React.Fragment>
 				<Context.Consumer>
-					{({ actions }) => {
+					{({ store, actions }) => {
 						return (
 							<div>
 								<div
@@ -192,12 +192,11 @@ export default class SignUp extends Component {
 										onClick={event => {
 											this.setState({ user });
 											if (this.handleRequest(event)) {
-												if (actions.createUser(user)) {
+												actions.createUser(user);
+												if (store.session.logged_in) {
 													this.props.history.push(
 														"/userinfo/"
 													);
-												} else {
-													this.setErrors();
 												}
 											}
 										}}>

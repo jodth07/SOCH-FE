@@ -1,5 +1,6 @@
 export function getUserData(scope) {
 	let store = scope.state.store;
+	console.log(store.session.token);
 	if (store.session.logged_in) {
 		// console.log(store.session.token);
 		fetch("http://127.0.0.1:8000/api/users/reup/", {
@@ -11,8 +12,8 @@ export function getUserData(scope) {
 			.then(response => response.json())
 			.then(data => {
 				store.session.user = data;
-				store.session.cart = data["cart"];
-				store.session.purchased = data["purchased"];
+				// store.session.cart = data["cart"];
+				// store.session.purchased = data["purchased"];
 				scope.setState({ store });
 			});
 	}

@@ -20,6 +20,17 @@ class UpdateInfo extends Component {
 			show: "block"
 		};
 		this.getUser = this.getUser.bind(this);
+    }
+    
+
+	addShipping(event) {
+		let show = this.state.show;
+		if (show === "block") {
+			show = "none";
+		} else {
+			show = "block";
+		}
+		this.setState({ show });
 	}
 
 	render() {
