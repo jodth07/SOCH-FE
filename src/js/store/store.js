@@ -74,29 +74,27 @@ const getState = scope => {
 
 			createUser: user => {
 				let store = scope.state.store;
-				store.users.push(user);
-				store.session.user = user;
-				// store.session.email = user.email;
-
-				scope.setState({ store });
-			},
-
-			isLegalUser: c_user => {
-				// update store info
-				let store = scope.state.store;
-
-				// get user from store
-				let s_user = store.users.filter(
-					_user => _user.username == c_user.username
-				)[0];
-
-				// set user session
-				if (s_user && s_user.password === c_user.password) {
-					store.session.loggedIn = true;
-					store.session.user = s_user;
-					scope.setState({ store });
-					return true;
-				}
+				fetch("http://127.0.0.1:8000/api/users/create/", {
+					method: "POST", // *GET, POST, PUT, DELETE, etc.
+					body: JSON.stringify({
+						first_name: user.first_name,
+						last_name: user.last_name,
+						email: user.email,
+						password: user.password,
+						address: user.address,
+						city: user.city,
+						state: user.state,
+						zipcode: user.zipcode
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => response.json())
+					.then(data => {
+						console.log(data);
+					});
+				// getUserData(scope);
 			},
 
 			upStage: item => {

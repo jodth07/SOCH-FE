@@ -59,7 +59,7 @@ export class Navbar extends React.Component {
 														Hello{" "}
 														{
 															store.session.user
-																.firstname
+																.first_name
 														}
 														!{" "}
 													</Link>

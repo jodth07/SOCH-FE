@@ -67,36 +67,38 @@ export class Login extends Component {
 														placeholder="PassWord"
 													/>
 												</div>
-
-												<button
-													type="submit"
-													onClick={event => {
-														if (
-															this.handleRequest(
-																event
-															)
-														) {
-															actions.getAuth(
-																user
-															);
+												<div className="d-flex">
+													<button
+														type="submit"
+														onClick={event => {
 															if (
-																store.session
-																	.logged_in
+																this.handleRequest(
+																	event
+																)
 															) {
-																this.props.history.push(
-																	"/userinfo/"
+																actions.getAuth(
+																	user
 																);
+																if (
+																	store
+																		.session
+																		.logged_in
+																) {
+																	this.props.history.push(
+																		"/userinfo/"
+																	);
+																}
 															}
-														}
-													}}
-													className="btn btn-primary">
-													Submit
-												</button>
-												<Link
-													to={"/signup/"}
-													className="btn btn-primary float-right">
-													create an account
-												</Link>
+														}}
+														className="btn btn-primary  p-2">
+														Submit
+													</button>
+													<Link
+														to={"/signup/"}
+														className="btn btn-primary ml-auto p-2">
+														create an account
+													</Link>
+												</div>
 											</form>
 										</div>
 									</div>

@@ -8,8 +8,13 @@ export default class SignUp extends Component {
 		this.state = {
 			session: false,
 			user: {
-				username: "",
-				email: ""
+				first_name: "",
+				last_name: "",
+				email: "",
+				password: "",
+				address: "",
+				city: "",
+				zipcode: null
 			}
 		};
 		this.getUser = this.getUser.bind(this);
@@ -25,10 +30,9 @@ export default class SignUp extends Component {
 
 		if (user.password1 == user.password2) {
 			user.password = user.password1;
-			var session = true;
-			user.session = true;
-			this.setState({ session, user });
 			return true;
+		} else {
+			alert("The passwords do not match!");
 		}
 	}
 
@@ -106,7 +110,7 @@ export default class SignUp extends Component {
 											placeholder="First name"
 											required
 											onChange={e =>
-												(user.firstname =
+												(user.first_name =
 													e.target.value)
 											}
 										/>
@@ -123,7 +127,8 @@ export default class SignUp extends Component {
 											placeholder="Last name"
 											required
 											onChange={e =>
-												(user.lastname = e.target.value)
+												(user.last_name =
+													e.target.value)
 											}
 										/>
 									</div>
@@ -131,42 +136,22 @@ export default class SignUp extends Component {
 
 								<div className="form-row">
 									<div className="col-md-12 mb-3">
-										<label htmlFor="=username">
-											Username
+										<label htmlFor="=email">
+											Email Address
 										</label>
 										<div className="input-group">
 											<div className="input-group-prepend">
 												<span
 													className="input-group-text"
-													id="username">
+													id="email">
 													@
 												</span>
 											</div>
 											<input
 												type="text"
 												className="form-control"
-												id="username"
-												placeholder="Username"
-												aria-describedby="username"
-												required
-												onChange={e =>
-													(user.username =
-														e.target.value)
-												}
-											/>
-										</div>
-									</div>
-								</div>
-
-								<div className="form-row">
-									<div className="col-md-12 mb-3">
-										<label htmlFor="email">Email</label>
-										<div className="input-group">
-											<input
-												type="email"
-												className="form-control"
 												id="email"
-												placeholder="Email"
+												placeholder="email"
 												aria-describedby="email"
 												required
 												onChange={e =>
@@ -288,7 +273,7 @@ export default class SignUp extends Component {
 
 									<div className="col-md-3 mb-3">
 										<label htmlFor="validationServer05">
-											Zip
+											Zip Code
 										</label>
 										<input
 											type="text"
@@ -311,11 +296,11 @@ export default class SignUp extends Component {
 											type="checkbox"
 											value=""
 											id="invalidCheck3"
-											required
-											onChange={e =>
-												(user.addressBool =
-													e.target.value)
-											}
+											// required
+											// onChange={e =>
+											// 	(user.addressBool =
+											// 		e.target.value)
+											// }
 										/>
 										<label
 											className="form-check-label"
@@ -335,11 +320,6 @@ export default class SignUp extends Component {
 										this.setState({ user });
 										if (this.handleRequest(event)) {
 											actions.createUser(user);
-											if (actions.isLegalUser(user)) {
-												this.props.history.push(
-													"/userinfo/"
-												);
-											}
 										}
 									}}>
 									Create Account
