@@ -80,21 +80,13 @@ const getState = scope => {
 						first_name: user.first_name,
 						last_name: user.last_name,
 						email: user.email,
-						password: user.password,
-						address: user.address,
-						city: user.city,
-						state: user.state,
-						zipcode: user.zipcode
+						password: user.password
 					}), // data can be `string` or {object}!
 					headers: {
 						"Content-Type": "application/json"
 					}
-				})
-					.then(response => response.json())
-					.then(data => {
-						console.log(data);
-					});
-				// getUserData(scope);
+				});
+				scope.state.actions.getAuth(user);
 			},
 
 			upStage: item => {

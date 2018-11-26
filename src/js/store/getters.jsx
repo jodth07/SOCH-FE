@@ -1,9 +1,11 @@
 export function getUserData(scope) {
 	let store = scope.state.store;
 	if (store.session.logged_in) {
+		// console.log(store.session.token);
 		fetch("http://127.0.0.1:8000/api/users/reup/", {
 			headers: {
-				Authorization: "Bearer " + store.session.token
+				"Content-Type": "application/json",
+				Authorization: "Birdy " + store.session.token
 			}
 		})
 			.then(response => response.json())
@@ -68,7 +70,7 @@ export function getFeatured(scope) {
 }
 
 export default function loadGetters(scope) {
-	getFeatured(scope);
-	getProducts(scope);
-	getStyles(scope);
+	// getFeatured(scope);
+	// getProducts(scope);
+	// getStyles(scope);
 }
