@@ -5,7 +5,8 @@ import "../../styles/profile.css";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 import UpdateInfo from "../component/profile/updateInfo.jsx";
-import AddressView from "../component/profile/addressView.jsx";
+import { AddressView } from "../component/profile/address.jsx";
+import { Cart } from "../component/profile/cart.jsx";
 
 export class Profile extends Component {
 	constructor() {
@@ -181,6 +182,7 @@ export class Profile extends Component {
 												role="tabpanel"
 												aria-labelledby="nav-profile-tab">
 												<p>some info cart</p>
+												<Cart />
 											</div>
 
 											<div

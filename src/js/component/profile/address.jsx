@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../../store/appContext.jsx";
 
-class AddressAddUpdate extends Component {
+export class AddressAddUpdate extends Component {
 	render() {
 		var USstates = [
 			"AK",
@@ -153,4 +153,24 @@ AddressAddUpdate.propTypes = {
 	cardItem: PropTypes.object
 };
 
-export default AddressAddUpdate;
+export class AddressView extends Component {
+	render() {
+		var address = this.props.address;
+		return (
+			<div>
+				<p>
+					<strong>{address.a_type} Address</strong>
+				</p>
+				<p>{address.street}</p>
+				<p>
+					{address.city}, {address.state}, {address.zipcode}
+				</p>
+				<p>{address.country}</p>
+			</div>
+		);
+	}
+}
+
+AddressView.propTypes = {
+	address: PropTypes.object
+};

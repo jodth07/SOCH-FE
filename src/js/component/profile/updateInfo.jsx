@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../../store/appContext.jsx";
-import AddressAddUpdate from "./address.jsx";
+import { AddressAddUpdate } from "./address.jsx";
 
 class UpdateInfo extends Component {
 	constructor() {
