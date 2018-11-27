@@ -1,8 +1,6 @@
 export function getUserData(scope) {
 	let store = scope.state.store;
-	console.log(store.session.token);
 	if (store.session.logged_in) {
-		// console.log(store.session.token);
 		fetch("http://127.0.0.1:8000/api/users/reup/", {
 			headers: {
 				"Content-Type": "application/json",
@@ -12,6 +10,32 @@ export function getUserData(scope) {
 			.then(response => response.json())
 			.then(data => {
 				store.session.user = data;
+
+				// store.session.cart = data["cart"];
+				// store.session.purchased = data["purchased"];
+				scope.setState({ store });
+				getUserAddress(scope);
+			});
+	}
+}
+
+export function getUserAddress(scope) {
+	let store = scope.state.store;
+	console.log(store.session.user.id);
+	if (store.session.logged_in) {
+		fetch(
+			"http://127.0.0.1:8000/api/users/address/" + store.session.user.id
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/json",
+			// 		Authorization: "Birdy " + store.session.token
+			// 	}
+			// }
+		)
+			.then(response => response.json())
+			.then(data => {
+				store.session.address = data;
+				console.log(data);
 				// store.session.cart = data["cart"];
 				// store.session.purchased = data["purchased"];
 				scope.setState({ store });
@@ -36,8 +60,8 @@ export function getAuthkey(scope, email, pass) {
 			store.session.token = data["token"];
 			store.session.logged_in = true;
 			scope.setState({ store });
+			getUserData(scope);
 		});
-	getUserData(scope);
 }
 
 export function getProducts(scope) {

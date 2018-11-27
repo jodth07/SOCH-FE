@@ -1,45 +1,31 @@
 import React, { Component } from "react";
 import "../../styles/login.css";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 
 export class Login extends Component {
-	constructor() {
-		super();
-		this.state = {
-			email: "",
-			password: ""
-		};
-		this.accessState = this.accessState.bind(this);
-	}
-
-	accessState = () => {
-		return this.state;
-	};
-
 	handleRequest(event) {
 		event.preventDefault();
-
 		if (this.nameTextInput.value && this.passwordTextInput.value) {
-			const state = this.accessState();
-			state.email = this.nameTextInput.value;
-			state.password = this.passwordTextInput.value;
-			this.setState(state);
 			return true;
 		}
 	}
 
 	render() {
-		const user = this.state;
+		const user = {};
+
 		return (
 			<React.Fragment>
 				<Context.Consumer>
 					{({ store, actions }) => {
 						return (
 							<div className="mainer p-5">
+								{store.session.logged_in && (
+									<Redirect to="/profile/" />
+								)}
 								<div className="row justify-content-center mt-5">
 									<div className="bg-light p-5 col-6 rounded">
 										<div className="container ">
@@ -76,18 +62,11 @@ export class Login extends Component {
 																	event
 																)
 															) {
+																user.email = this.nameTextInput.value;
+																user.password = this.passwordTextInput.value;
 																actions.getAuth(
 																	user
 																);
-																if (
-																	store
-																		.session
-																		.logged_in
-																) {
-																	this.props.history.push(
-																		"/userinfo/"
-																	);
-																}
 															}
 														}}
 														className="btn btn-primary  p-2">

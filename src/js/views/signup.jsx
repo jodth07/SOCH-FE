@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import { Link, Redirect } from "react-router-dom";
 // Local imports
 import { Context } from "../store/appContext.jsx";
 import AddressAddUpdate from "../component/profile/address.jsx";
@@ -52,6 +52,9 @@ export default class SignUp extends Component {
 					{({ store, actions }) => {
 						return (
 							<div>
+								{store.session.logged_in && (
+									<Redirect to="/profile/" />
+								)}
 								<div
 									className="alert alert-danger container "
 									style={{ display: this.state.email_exits }}

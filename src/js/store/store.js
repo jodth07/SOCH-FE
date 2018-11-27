@@ -3,7 +3,7 @@ import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
 import loadGetters from "./getters.jsx";
 
-import { getProducts, getAuthkey, getUserData } from "./getters.jsx";
+import { getProducts, getAuthkey, getUserAddress } from "./getters.jsx";
 
 const getState = scope => {
 	return {
@@ -40,7 +40,7 @@ const getState = scope => {
 				user: {},
 				cart: {},
 				purchased: {},
-
+				address: [],
 				stagedItem: {},
 				logged_in: false
 			}
@@ -56,6 +56,7 @@ const getState = scope => {
 				return true;
 			},
 			getUserInfo: () => {
+				getUserAddress(scope);
 				return;
 			},
 
@@ -87,10 +88,13 @@ const getState = scope => {
 					}
 				}).then(response => {
 					if (response.ok) {
-						console.log(response.ok);
 						scope.state.actions.getAuth(user);
 					}
 				});
+			},
+
+			updateUser: user => {
+				return;
 			},
 
 			upStage: item => {

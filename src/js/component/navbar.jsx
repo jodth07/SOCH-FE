@@ -54,7 +54,7 @@ export class Navbar extends React.Component {
 											<ul className="navbar-nav mr-auto">
 												<li className="nav-item">
 													<Link
-														to="/userInfo"
+														to="/profile/"
 														className="nav-link">
 														Hello{" "}
 														{

@@ -2,26 +2,21 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../../store/appContext.jsx";
+import AddressAddUpdate from "./address.jsx";
 
 class UpdateInfo extends Component {
-    constructor() {
+	constructor() {
 		super();
 		this.state = {
-			session: false,
 			user: {
 				first_name: "",
 				last_name: "",
 				email: "",
-				password: "",
-				address: "",
-				city: "",
-				zipcode: null
+				password: ""
 			},
 			show: "block"
 		};
-		this.getUser = this.getUser.bind(this);
-    }
-    
+	}
 
 	addShipping(event) {
 		let show = this.state.show;
@@ -34,12 +29,14 @@ class UpdateInfo extends Component {
 	}
 
 	render() {
+		var user = this.state.user;
 		return (
 			<React.Fragment>
 				<Context.Consumer>
 					{({ store, actions }) => {
+						var user = store.session.user;
 						return (
-							<form className="container col-6" role="form">
+							<form role="form">
 								<div className="form-row">
 									<div className="col-md-6 mb-3 p-1">
 										<label
@@ -51,7 +48,7 @@ class UpdateInfo extends Component {
 											type="text"
 											className="form-control"
 											id="firstName"
-											placeholder="First name"
+											placeholder={user.first_name}
 											required
 											onChange={e =>
 												(user.first_name =
@@ -68,7 +65,7 @@ class UpdateInfo extends Component {
 											type="text"
 											className="form-control"
 											id="lastName"
-											placeholder="Last name"
+											placeholder={user.last_name}
 											required
 											onChange={e =>
 												(user.last_name =
@@ -95,8 +92,7 @@ class UpdateInfo extends Component {
 												type="text"
 												className="form-control"
 												id="email"
-												placeholder="email"
-												aria-describedby="email"
+												placeholder={user.email}
 												required
 												onChange={e =>
 													(user.email =
@@ -164,7 +160,7 @@ class UpdateInfo extends Component {
 
 								<hr className="my-4" />
 								<div id="shipshow">
-									<AddressAddUpdate address="Shipping Address" />
+									<AddressAddUpdate address_type="Shipping Address" />
 
 									<hr className="my-4" />
 								</div>
@@ -176,11 +172,6 @@ class UpdateInfo extends Component {
 											value=""
 											id="invalidCheck3"
 											onClick={() => this.addShipping()}
-											// required
-											// onChange={e =>
-											// 	(user.addressBool =
-											// 		e.target.value)
-											// }
 										/>
 										<label
 											className="form-check-label"
@@ -204,10 +195,10 @@ class UpdateInfo extends Component {
 									onClick={event => {
 										this.setState({ user });
 										if (this.handleRequest(event)) {
-											actions.createUser(user);
+											actions.updateUser(user);
 										}
 									}}>
-									Create Account
+									Update Account Info
 								</button>
 							</form>
 						);
