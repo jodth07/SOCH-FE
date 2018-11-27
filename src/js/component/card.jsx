@@ -16,7 +16,7 @@ class Card extends Component {
 								className="card-img-top"
 								src={
 									"http://127.0.0.1:8000/api/medias/" +
-									cardItem.image.id
+									cardItem.image
 								}
 								alt="Card image cap"
 							/>

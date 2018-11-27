@@ -62,7 +62,7 @@ export function getAuthkey(scope, email, pass) {
 
 export function getProducts(scope) {
 	let store = scope.state.store;
-	fetch("http://127.0.0.1:8000/api/products/")
+	fetch("http://127.0.0.1:8000/api/products/p/")
 		.then(response => response.json())
 		.then(data => {
 			store.products = data;
@@ -72,7 +72,7 @@ export function getProducts(scope) {
 
 export function getStyles(scope) {
 	let store = scope.state.store;
-	fetch("http://127.0.0.1:8000/api/styles/")
+	fetch("http://127.0.0.1:8000/api/products/s/")
 		.then(response => response.json())
 		.then(data => {
 			store.styles = data;
@@ -92,6 +92,6 @@ export function getFeatured(scope) {
 
 export default function loadGetters(scope) {
 	// getFeatured(scope);
-	// getProducts(scope);
-	// getStyles(scope);
+	getProducts(scope);
+	getStyles(scope);
 }
