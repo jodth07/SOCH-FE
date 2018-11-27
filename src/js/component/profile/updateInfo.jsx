@@ -77,6 +77,28 @@ class UpdateInfo extends Component {
 
 								<div className="form-row">
 									<div className="col-md-12 mb-3">
+										<label htmlFor="Phone">
+											Phone Number
+										</label>
+
+										<input
+											type="text"
+											className="form-control"
+											placeholder={
+												user.phone
+													? user.phone
+													: "Phone Number"
+											}
+											required
+											onChange={e =>
+												(user.phone = e.target.value)
+											}
+										/>
+									</div>
+								</div>
+
+								<div className="form-row">
+									<div className="col-md-12 mb-3">
 										<label htmlFor="=email">
 											Email Address
 										</label>
@@ -185,7 +207,7 @@ class UpdateInfo extends Component {
 								<hr className="my-4" />
 
 								<AddressAddUpdate
-									address="Billing Address"
+									address_type="Billing Address"
 									show={this.state.show}
 								/>
 

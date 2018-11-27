@@ -40,7 +40,18 @@ const getState = scope => {
 				user: {},
 				cart: {},
 				purchased: {},
-				address: [],
+				address: [
+					{
+						Country: "United States",
+						a_type: "Shipping",
+						city: "Gainesville",
+						id: 3,
+						state: "FL",
+						street: "279 Corry Vlg Apt # 5",
+						user: 2,
+						zipcode: "32608"
+					}
+				],
 				stagedItem: {},
 				logged_in: false
 			}

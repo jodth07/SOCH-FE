@@ -5,6 +5,7 @@ import "../../styles/profile.css";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 import UpdateInfo from "../component/profile/updateInfo.jsx";
+import AddressView from "../component/profile/addressView.jsx";
 
 export class Profile extends Component {
 	constructor() {
@@ -71,8 +72,6 @@ export class Profile extends Component {
 												role="tablist">
 												<a
 													onClick={() => {
-														// actions.getUserInfo();
-														console.log(user.id);
 														this.setState({
 															show_div_nav: 1
 														});
@@ -152,9 +151,23 @@ export class Profile extends Component {
 												id="nav-home"
 												role="tabpanel"
 												aria-labelledby="nav-home-tab">
-												<div className="container row">
-													<p>some info profile</p>
-												</div>
+												<p>
+													<strong>Full Name</strong>
+												</p>
+												<p>
+													{user.first_name}{" "}
+													{user.last_name}
+												</p>
+												{store.session.address.map(
+													(item, index) => {
+														return (
+															<AddressView
+																address={item}
+																key={index}
+															/>
+														);
+													}
+												)}
 											</div>
 
 											<div

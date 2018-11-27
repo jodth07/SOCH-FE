@@ -58,9 +58,7 @@ class AddressAddUpdate extends Component {
 			"WY"
 		];
 		var user = {};
-		var bill_address = {};
-		var ship_address = {};
-		var address_type = this.props.address;
+		var address_type = this.props.address_type;
 
 		var cardItem = this.props.item;
 		var showComp = {
@@ -147,7 +145,7 @@ class AddressAddUpdate extends Component {
 AddressAddUpdate.propTypes = {
 	item: PropTypes.object,
 	viewItem: PropTypes.func,
-	address: PropTypes.string,
+	address_type: PropTypes.string,
 	show: PropTypes.string,
 
 	match: PropTypes.object,

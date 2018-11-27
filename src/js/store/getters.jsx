@@ -21,7 +21,6 @@ export function getUserData(scope) {
 
 export function getUserAddress(scope) {
 	let store = scope.state.store;
-	console.log(store.session.user.id);
 	if (store.session.logged_in) {
 		fetch(
 			"http://127.0.0.1:8000/api/users/address/" + store.session.user.id
@@ -35,9 +34,6 @@ export function getUserAddress(scope) {
 			.then(response => response.json())
 			.then(data => {
 				store.session.address = data;
-				console.log(data);
-				// store.session.cart = data["cart"];
-				// store.session.purchased = data["purchased"];
 				scope.setState({ store });
 			});
 	}
