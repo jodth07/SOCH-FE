@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Context } from "../../store/appContext.jsx";
+import CartItem from "../cartItem.jsx";
 
 export class Cart extends Component {
 	render() {
@@ -10,22 +11,40 @@ export class Cart extends Component {
 						var cart = store.session.cart;
 						var empty = <p>Your Cart is currently empty</p>;
 						var not_empty = <p>Your Cart is not currently empty</p>;
-						var cart_items = cart.products ? (
-							<div>
-								{cart.products.map((cart_item, index) => {
-									return <h2 key={index}>{cart_item}</h2>;
-								})}
-							</div>
-						) : (
-							empty
-						);
+
 						return (
-							<div className="container">
-								<p>Here will go cart info from store</p>
-								The cart id is : {cart.id}
-								{cart.products && cart.products.length === 0
-									? empty
-									: cart_items}
+							<div className="">
+								<ul className="list-group list-group-flush">
+									<li className="list-group-item">
+										<div className="row">
+											<div className="col-3">One</div>
+											<div className="col-3">One</div>
+											<div className="col-3">One</div>
+											<div className="col-3">One</div>
+										</div>
+									</li>
+
+									{cart.products ? (
+										cart.products.length === 0 ? (
+											empty
+										) : (
+											<div>
+												{cart.products.map(
+													(cart_item, index) => {
+														return (
+															<CartItem
+																key={index}
+																item={cart_item}
+															/>
+														);
+													}
+												)}
+											</div>
+										)
+									) : (
+										empty
+									)}
+								</ul>
 							</div>
 						);
 					}}

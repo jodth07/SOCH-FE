@@ -138,7 +138,7 @@ export function getFeatured(scope) {
 }
 
 export default function loadGetters(scope) {
-	// getFeatured(scope);
+	getFeatured(scope);
 	getProducts(scope);
 	getStyles(scope);
 }

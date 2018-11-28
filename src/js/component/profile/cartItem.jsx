@@ -23,9 +23,11 @@ class CartItem extends Component {
 				<div className="col-1">
 					<input placeholder={cartItem.quantity} />
 				</div>
-				<button className="col-2">
+				<div className="col-2">
+					<button>
 					<p>remove item(s)</p>
-				</button>
+					</button>
+				</div>
 			</div>
 		);
 	}

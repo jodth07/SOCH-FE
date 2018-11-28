@@ -12,7 +12,7 @@ export class Profile extends Component {
 	constructor() {
 		super();
 		this.state = {
-			show_div_nav: 1
+			show_div_nav: 2
 		};
 	}
 
@@ -66,7 +66,7 @@ export class Profile extends Component {
 										</div>
 									</div>
 									<div className="col-8">
-										<nav>
+										<nav className="">
 											<div
 												className="nav nav-tabs"
 												id="nav-tab"
@@ -141,6 +141,7 @@ export class Profile extends Component {
 
 										<div
 											className="tab-content"
+											style={{ borderTop: 0 + "px" }}
 											id="nav-tabContent">
 											<div
 												className={
@@ -181,7 +182,6 @@ export class Profile extends Component {
 												id="nav-profile"
 												role="tabpanel"
 												aria-labelledby="nav-profile-tab">
-												<p>some info cart</p>
 												<Cart />
 											</div>
 
