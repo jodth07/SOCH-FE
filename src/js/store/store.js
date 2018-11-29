@@ -38,7 +38,48 @@ const getState = scope => {
 			session: {
 				token: "",
 				user: {},
-				cart: {},
+				cart: {
+					id: 1,
+					products: [3, 4, 19],
+					purchase_date: "2018-11-27",
+					purchased: false,
+					subtotal: "187.00",
+					tax_percentage: "0.06500",
+					tax_total: "12.16",
+					timestamp: "2018-11-24T21:47:24.862174Z",
+					total: "199.16",
+					updated: "2018-11-27T19:37:36.340543Z",
+					user: 2
+				},
+				cart_items: [
+					{
+						id: 12,
+						product: {
+							id: 21,
+							title: "Beautiful Textures Tangle Taming Shampoo",
+							category: "Product",
+							description:
+								"Beautiful Textures Tangle Taming Shampoo",
+							duration: 0
+						},
+						quantity: 1,
+						subtotal: "11.00"
+					},
+
+					{
+						id: 13,
+						product: {
+							id: 3,
+							title: "Smooth & Straight Long Locks",
+							category: "Style",
+							description:
+								"This look is easy to get with a quality weave. We … hair, so options are plentiful after your weave.",
+							duration: 40
+						},
+						quantity: 1,
+						subtotal: "65.00"
+					}
+				],
 				purchased: {},
 				address: [
 					{

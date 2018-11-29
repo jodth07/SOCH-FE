@@ -10,9 +10,6 @@ export function getUserData(scope) {
 			.then(response => response.json())
 			.then(data => {
 				store.session.user = data;
-
-				// store.session.cart = data["cart"];
-				// store.session.purchased = data["purchased"];
 				scope.setState({ store });
 				getUserAddress(scope);
 				getUserCart(scope);
@@ -43,24 +40,28 @@ export function getUserAddress(scope) {
 export function getUserCart(scope) {
 	let store = scope.state.store;
 	if (store.session.logged_in) {
-		fetch(
-			"http://127.0.0.1:8000/api/carts/c/" + store.session.user.id
-			// {
-			// 	headers: {
-			// 		"Content-Type": "application/json",
-			// 		Authorization: "Birdy " + store.session.token
-			// 	}
-			// }
-		)
+		fetch("http://127.0.0.1:8000/api/carts/c/" + store.session.user.id)
 			.then(response => response.json())
 			.catch(response => {
-				// console.log(response.ok);
 				if (!response.ok) {
 					createUserCart(scope);
 				}
 			})
 			.then(data => {
 				store.session.cart = data;
+				scope.setState({ store });
+				getUserCartItems(scope);
+			});
+	}
+}
+
+export function getUserCartItems(scope) {
+	let store = scope.state.store;
+	if (store.session.logged_in) {
+		fetch("http://127.0.0.1:8000/api/carts/i/" + store.session.cart.id)
+			.then(response => response.json())
+			.then(data => {
+				store.session.cart_items = data;
 				scope.setState({ store });
 			});
 	}

@@ -8,9 +8,8 @@ export class Cart extends Component {
 			<div>
 				<Context.Consumer>
 					{({ store, actions }) => {
-						var cart = store.session.cart;
+						var cart_items = store.session.cart_items;
 						var empty = <p>Your Cart is currently empty</p>;
-						var not_empty = <p>Your Cart is not currently empty</p>;
 
 						return (
 							<div className="">
@@ -24,12 +23,12 @@ export class Cart extends Component {
 										</div>
 									</li>
 
-									{cart.products ? (
-										cart.products.length === 0 ? (
+									{store.session.cart.products ? (
+										cart_items.length === 0 ? (
 											empty
 										) : (
 											<div>
-												{cart.products.map(
+												{cart_items.map(
 													(cart_item, index) => {
 														return (
 															<CartItem
