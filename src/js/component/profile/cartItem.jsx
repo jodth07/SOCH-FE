@@ -3,32 +3,40 @@ import PropTypes from "prop-types";
 
 class CartItem extends Component {
 	render() {
-		var cartItem = this.props.item;
-
+		var cart_item = this.props.item;
+		var link = "http://127.0.0.1:8000/api/medias/";
 		return (
-			<div className="row">
-				<img
-					className="col-2"
-					// src={cartItem.image}
-					style={{
-						width: 12 + "em",
-						height: 6 + "em"
-					}}
-				/>
-				<div className="col-6">
-					{/* <h2>{cartItem.name}</h2> */}
-					{/* <h3>{cartItem.price}</h3> */}
+			<li className="list-group-item row">
+				<div className="row">
+					<img
+						className="col-2"
+						src={link + cart_item.product.image}
+						style={{
+							width: 10 + "em",
+							height: 5 + "em"
+						}}
+					/>
+					<div className="col-5">
+						<p>{cart_item.product.title}</p>
+						<p className="row container justify-content-between">
+							${cart_item.product.price}
+							<button className="btn  pull-right">
+								Update quantity
+							</button>
+						</p>
+					</div>
+
+					<input className="col-1" placeholder={cart_item.quantity} />
+
+					<div className="col-1" />
+					<div className="col-1">
+						<p>{cart_item.subtotal}</p>
+						<button className="btn  pull-right">
+							Remove items
+						</button>
+					</div>
 				</div>
-				<div className="col-1">{/* <h3>{cartItem.price}</h3> */}</div>
-				<div className="col-1">
-					<input placeholder={cartItem.quantity} />
-				</div>
-				<div className="col-2">
-					<button>
-					<p>remove item(s)</p>
-					</button>
-				</div>
-			</div>
+			</li>
 		);
 	}
 }

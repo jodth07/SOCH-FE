@@ -182,9 +182,6 @@ export class Profile extends Component {
 												id="nav-profile"
 												role="tabpanel"
 												aria-labelledby="nav-profile-tab">
-												{console.log(
-													store.session.cart_items
-												)}
 												<Cart />
 											</div>
 

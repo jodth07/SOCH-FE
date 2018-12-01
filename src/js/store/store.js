@@ -60,7 +60,9 @@ const getState = scope => {
 							category: "Product",
 							description:
 								"Beautiful Textures Tangle Taming Shampoo",
-							duration: 0
+							duration: 0,
+							image: 4,
+							price: "11.00"
 						},
 						quantity: 1,
 						subtotal: "11.00"
@@ -74,7 +76,9 @@ const getState = scope => {
 							category: "Style",
 							description:
 								"This look is easy to get with a quality weave. We … hair, so options are plentiful after your weave.",
-							duration: 40
+							duration: 40,
+							image: 3,
+							price: "65.00"
 						},
 						quantity: 1,
 						subtotal: "65.00"
