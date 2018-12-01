@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "../component/card.jsx";
+import Card from "../component/products/card.jsx";
 import { Context } from "../store/appContext.jsx";
 import Modal from "../component/modal.jsx";
 
