@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Card from "../component/products/card.jsx";
 import { Context } from "../store/appContext.jsx";
-import Modal from "../component/modal.jsx";
+import Modal from "../component/products/modal.jsx";
 
 //create your first component
 export default class Styles extends Component {
