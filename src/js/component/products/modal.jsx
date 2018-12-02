@@ -102,8 +102,9 @@ class Modal extends React.Component {
 												new_cart.quantity > 0 &&
 													actions.addToCart(new_cart);
 												console.log(new_cart);
-												actions.unStage();
+
 												this.props.onClose();
+												actions.unStage();
 											}}>
 											Add to Cart
 										</button>
@@ -126,8 +127,8 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-	show: false,
-	onClose: null
+	show: false
+	// onClose: null
 };
 
 export default Modal;

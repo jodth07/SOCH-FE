@@ -1,10 +1,13 @@
 import slide10 from "../../img/slide_10.jpg";
 import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
-import loadGetters from "./getters.jsx";
-import createUserCartItems from "./setters.jsx";
 
-import { getProducts, getAuthkey, getUserAddress } from "./getters.jsx";
+import {
+	getProducts,
+	getAuthkey,
+	getUserAddress,
+	getUserCart
+} from "./getters.jsx";
 
 const getState = scope => {
 	return {
@@ -117,7 +120,54 @@ const getState = scope => {
 				scope.setState({ store });
 			},
 
+			logout: () => {
+				let store = scope.state.store;
+				store.session.token = "";
+				store.session.logged_in = false;
+				scope.setState({ store });
+			},
+
 			// Own API Calls
+
+			// Cart Items
+
+			addToCart: cart_item => {
+				let store = scope.state.store;
+				if (store.session.logged_in) {
+					fetch("http://127.0.0.1:8000/api/carts/i/", {
+						method: "POST", // *GET, POST, PUT, DELETE, etc.
+						body: JSON.stringify({
+							quantity: cart_item.quantity,
+							cart: cart_item.cart,
+							product: cart_item.product
+						}),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					})
+						.then(response => response.json())
+						.then(response => {
+							if (response.ok) {
+								getUserCart(scope);
+							}
+						});
+				}
+			},
+
+			removeFromCart: cart_item_id => {
+				let store = scope.state.store;
+				if (store.session.logged_in) {
+					fetch("http://127.0.0.1:8000/api/carts/i/" + cart_item_id, {
+						method: "DELETE" // *GET, POST, PUT, DELETE, etc.
+					})
+						.then(response => response.json())
+						.then(response => {
+							if (response.ok) {
+								getUserCart(scope);
+							}
+						});
+				}
+			},
 
 			// Additional API calls
 
@@ -125,11 +175,13 @@ const getState = scope => {
 			updateProducts: () => {
 				getProducts(scope);
 			},
+
 			// Users
 			getAuth: user => {
 				getAuthkey(scope, user.email, user.password);
 				return true;
 			},
+
 			getUserInfo: () => {
 				getUserAddress(scope);
 				return;
@@ -163,25 +215,9 @@ const getState = scope => {
 				return;
 			},
 
-			addToCart: cart => {
-				createUserCartItems(scope, cart);
-			},
-
-			removeFromCart: item => {
-				let store = scope.state.store;
-				store.session.cart.push(item);
-				scope.setState({ store });
-			},
-
 			emptyCart: () => {
 				let store = scope.state.store;
 				store.session.cart = [];
-				scope.setState({ store });
-			},
-			logout: () => {
-				let store = scope.state.store;
-				store.session.token = "";
-				store.session.logged_in = false;
 				scope.setState({ store });
 			}
 		}
