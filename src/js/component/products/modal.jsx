@@ -9,6 +9,12 @@ class Modal extends React.Component {
 			<Context.Consumer>
 				{({ store, actions }) => {
 					var c_item = store.session.stagedItem;
+					var new_cart = {
+						cart: store.session.cart.id,
+						product: c_item.id,
+						quantity: 1
+					};
+
 					return (
 						<div
 							className="modal"
@@ -45,15 +51,15 @@ class Modal extends React.Component {
 									<div className="modal-body">
 										<div>
 											<img
-												className="card-img-top rounded mx-auto d-block"
+												className="card-img-top pb-3 rounded mx-auto d-block"
 												src={
 													"http://127.0.0.1:8000/api/medias/" +
 													c_item.image
 												}
 												style={{
 													display: "block",
-													maxWidth: 12 + "em",
-													maxHeight: 16 + "em",
+													maxWidth: 15 + "em",
+													maxHeight: 18 + "em",
 													width: "auto",
 													height: "auto"
 												}}
@@ -61,14 +67,22 @@ class Modal extends React.Component {
 											/>
 										</div>
 										<p>{c_item.description}</p>
+										{c_item.company && (
+											<p> by : {c_item.company}</p>
+										)}
 										<div className="row container justify-content-between">
 											<p>Price : ${c_item.price}</p>
 											<p className="pull-right">
 												Quantity :{" "}
-												<input placeholder="1" />
+												<input
+													onChange={e => {
+														new_cart.quantity =
+															e.target.value;
+													}}
+													placeholder="1"
+												/>
 											</p>
 										</div>
-										{console.log(c_item)}
 									</div>
 									<div className="modal-footer justify-content-between">
 										<button
@@ -85,7 +99,9 @@ class Modal extends React.Component {
 											className="btn btn-primary"
 											data-dismiss="modal"
 											onClick={() => {
-												actions.addToCart(c_item);
+												new_cart.quantity > 0 &&
+													actions.addToCart(new_cart);
+												console.log(new_cart);
 												actions.unStage();
 												this.props.onClose();
 											}}>

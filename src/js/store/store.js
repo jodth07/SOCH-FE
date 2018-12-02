@@ -2,6 +2,7 @@ import slide10 from "../../img/slide_10.jpg";
 import slide11 from "../../img/slide_11.jpg";
 import slide12 from "../../img/slide_12.jpg";
 import loadGetters from "./getters.jsx";
+import createUserCartItems from "./setters.jsx";
 
 import { getProducts, getAuthkey, getUserAddress } from "./getters.jsx";
 
@@ -102,6 +103,24 @@ const getState = scope => {
 			}
 		},
 		actions: {
+			// local class
+			upStage: item => {
+				let store = scope.state.store;
+				store.session.stagedItem = item;
+				scope.setState({ store });
+				return true;
+			},
+
+			unStage: () => {
+				let store = scope.state.store;
+				store.session.stagedItem = {};
+				scope.setState({ store });
+			},
+
+			// Own API Calls
+
+			// Additional API calls
+
 			// products
 			updateProducts: () => {
 				getProducts(scope);
@@ -116,17 +135,8 @@ const getState = scope => {
 				return;
 			},
 
-			addProductToCart: product => {
-				let usercart = scope.state.store;
-				usercart.cart.push(product);
-				scope.setState({ usercart });
-				alert("You just added " + product.name + " to the cart.");
-			},
-
-			deleteItemInCart: product => {
-				let mistake = scope.state.store;
-				mistake.cart.splice(product, 1);
-				scope.setState(mistake);
+			deleteCartItem: product => {
+				return;
 			},
 
 			createUser: user => {
@@ -153,23 +163,8 @@ const getState = scope => {
 				return;
 			},
 
-			upStage: item => {
-				let store = scope.state.store;
-				store.session.stagedItem = item;
-				scope.setState({ store });
-				return true;
-			},
-
-			unStage: () => {
-				let store = scope.state.store;
-				store.session.stagedItem = {};
-				scope.setState({ store });
-			},
-
-			addToCart: item => {
-				let store = scope.state.store;
-				store.session.cart.push(item);
-				scope.setState({ store });
+			addToCart: cart => {
+				createUserCartItems(scope, cart);
 			},
 
 			removeFromCart: item => {
