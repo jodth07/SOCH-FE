@@ -6,6 +6,7 @@ import { Context } from "../../store/appContext.jsx";
 class Card extends Component {
 	render() {
 		var card_item = this.props.item;
+		var link = "http://127.0.0.1:8000/api/medias/" + card_item.image;
 
 		return (
 			<Context.Consumer>
@@ -19,10 +20,7 @@ class Card extends Component {
 							}}>
 							<img
 								className="card-img-top rounded mx-auto d-block"
-								src={
-									"http://127.0.0.1:8000/api/medias/" +
-									card_item.image
-								}
+								src={card_item ? link : ""}
 								style={{
 									display: "block",
 									maxWidth: 12 + "em",

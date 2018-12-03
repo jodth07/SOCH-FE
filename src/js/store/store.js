@@ -6,7 +6,10 @@ import {
 	getProducts,
 	getAuthkey,
 	getUserAddress,
-	getUserCart
+	getUserCart,
+	getUserCartItems,
+	createUserCart,
+	getUserData
 } from "./getters.jsx";
 
 const getState = scope => {
@@ -70,22 +73,6 @@ const getState = scope => {
 						},
 						quantity: 1,
 						subtotal: "11.00"
-					},
-
-					{
-						id: 13,
-						product: {
-							id: 3,
-							title: "Smooth & Straight Long Locks",
-							category: "Style",
-							description:
-								"This look is easy to get with a quality weave. We … hair, so options are plentiful after your weave.",
-							duration: 40,
-							image: 3,
-							price: "65.00"
-						},
-						quantity: 1,
-						subtotal: "65.00"
 					}
 				],
 				purchased: {},
@@ -132,6 +119,7 @@ const getState = scope => {
 			// Cart Items
 
 			addToCart: cart_item => {
+				// Add cart items to cart
 				let store = scope.state.store;
 				if (store.session.logged_in) {
 					fetch("http://127.0.0.1:8000/api/carts/i/", {
@@ -144,27 +132,71 @@ const getState = scope => {
 						headers: {
 							"Content-Type": "application/json"
 						}
-					})
-						.then(response => response.json())
-						.then(response => {
-							if (response.ok) {
-								getUserCart(scope);
-							}
-						});
+					}).then(response => {
+						response.json();
+						if (response.ok) {
+							scope.state.actions.getUserCart(scope);
+						}
+					});
 				}
 			},
 
 			removeFromCart: cart_item_id => {
+				// remove cart items from cart
 				let store = scope.state.store;
 				if (store.session.logged_in) {
 					fetch("http://127.0.0.1:8000/api/carts/i/" + cart_item_id, {
 						method: "DELETE" // *GET, POST, PUT, DELETE, etc.
 					})
-						.then(response => response.json())
 						.then(response => {
+							response.json();
 							if (response.ok) {
-								getUserCart(scope);
+								scope.state.actions.getUserCart(scope);
 							}
+						})
+						.catch(error => {
+							return;
+						});
+				}
+			},
+
+			updateCartItem: (cart_item_id, quantity) => {
+				// update quantity of items in cart item
+				let store = scope.state.store;
+				if (store.session.logged_in) {
+					fetch("http://127.0.0.1:8000/api/carts/i/" + cart_item_id, {
+						method: "PUT", // *GET, POST, PUT, DELETE, etc.
+						body: JSON.stringify({
+							quantity: quantity,
+							id: cart_item_id
+						})
+					}).then(response => {
+						response.json();
+						if (response.ok) {
+							scope.state.actions.getUserCart(scope);
+						}
+					});
+				}
+			},
+
+			// carts
+			getUserCart: scope => {
+				let store = scope.state.store;
+				if (store.session.logged_in) {
+					fetch(
+						"http://127.0.0.1:8000/api/carts/c/" +
+							store.session.user.id
+					)
+						.then(response => response.json())
+						.catch(response => {
+							if (!response.ok) {
+								createUserCart(scope);
+							}
+						})
+						.then(data => {
+							store.session.cart = data;
+							scope.setState({ store });
+							getUserCartItems(scope);
 						});
 				}
 			},
@@ -178,7 +210,26 @@ const getState = scope => {
 
 			// Users
 			getAuth: user => {
-				getAuthkey(scope, user.email, user.password);
+				// getAuthkey(scope, user.email, user.password);
+				let store = scope.state.store;
+				fetch("http://127.0.0.1:8000/api/users/login/", {
+					method: "POST", // *GET, POST, PUT, DELETE, etc.
+					body: JSON.stringify({
+						email: user.email,
+						password: user.password
+					}), // data can be `string` or {object}!
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => response.json())
+					.then(data => {
+						store.session.token = data["token"];
+
+						store.session.logged_in = true;
+						scope.setState({ store });
+						getUserData(scope);
+					});
 				return true;
 			},
 

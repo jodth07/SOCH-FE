@@ -22,17 +22,16 @@ export default class Products extends Component {
 							<div>
 								{store.products.map((product, index) => {
 									return (
-										<div key={index}>
-											<Card
-												item={product}
-												viewItem={() =>
-													this.setState({
-														showModal: true,
-														key: product.id
-													})
-												}
-											/>
-										</div>
+										<Card
+											key={index}
+											item={product}
+											viewItem={() =>
+												this.setState({
+													showModal: true,
+													key: product.id
+												})
+											}
+										/>
 									);
 								})}
 							</div>

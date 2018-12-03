@@ -5,7 +5,8 @@ import { Context } from "../../store/appContext.jsx";
 class CartItem extends Component {
 	render() {
 		var cart_item = this.props.item;
-		var link = "http://127.0.0.1:8000/api/medias/";
+		var link =
+			"http://127.0.0.1:8000/api/medias/" + cart_item.product.image;
 		return (
 			<Context.Consumer>
 				{({ actions }) => {
@@ -14,7 +15,7 @@ class CartItem extends Component {
 							<div className="row">
 								<img
 									className="col-2"
-									src={link + cart_item.product.image}
+									src={link}
 									style={{
 										width: 10 + "em",
 										height: 5 + "em"

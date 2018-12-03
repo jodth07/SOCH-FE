@@ -9,11 +9,10 @@ class Modal extends React.Component {
 			<Context.Consumer>
 				{({ store, actions }) => {
 					var c_item = store.session.stagedItem;
-					var new_cart = {
-						cart: store.session.cart.id,
-						product: c_item.id,
-						quantity: 1
-					};
+					var new_cart = {};
+					new_cart.cart = store.session.cart.id;
+					new_cart.product = c_item.id;
+					new_cart.quantity = 1;
 
 					return (
 						<div
@@ -89,8 +88,8 @@ class Modal extends React.Component {
 											type="button"
 											className="btn btn-secondary"
 											onClick={() => {
-												actions.unStage();
 												this.props.onClose();
+												actions.unStage();
 											}}>
 											close
 										</button>

@@ -22,12 +22,6 @@ export function getUserAddress(scope) {
 	if (store.session.logged_in) {
 		fetch(
 			"http://127.0.0.1:8000/api/users/address/" + store.session.user.id
-			// {
-			// 	headers: {
-			// 		"Content-Type": "application/json",
-			// 		Authorization: "Birdy " + store.session.token
-			// 	}
-			// }
 		)
 			.then(response => response.json())
 			.then(data => {
@@ -44,6 +38,7 @@ export function getUserCart(scope) {
 			.then(response => response.json())
 			.catch(response => {
 				if (!response.ok) {
+					console.log("made it here");
 					createUserCart(scope);
 				}
 			})
