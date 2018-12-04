@@ -15,7 +15,7 @@ import Login from "./views/login.jsx";
 import SignUp from "./views/signup.jsx";
 import Checkout from "./views/checkout.jsx";
 import Profile from "./views/profile.jsx";
-import Cart from "./views/cart.jsx";
+import CartView from "./views/cartView.jsx";
 
 import Home from "./views/home.jsx";
 
@@ -37,7 +37,7 @@ export class Layout extends React.Component {
 
 							<Route path="/login" component={Login} />
 							<Route path="/signup" component={SignUp} />
-							<Route path="/cart" component={Cart} />
+							<Route path="/cart" component={CartView} />
 							<Route path="/checkout" component={Checkout} />
 							<Route path="/profile/" component={Profile} />
 

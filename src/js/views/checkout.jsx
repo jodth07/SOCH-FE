@@ -18,7 +18,9 @@ export class Checkout extends React.Component {
 									<Form />
 									<div className="col-5">
 										<QuantityOfItems
-											number={store.cart.length}
+											number={
+												store.session.cart_items.length
+											}
 										/>
 										<h3 style={{ opacity: "0.7" }}>
 											Your cart
@@ -31,6 +33,7 @@ export class Checkout extends React.Component {
 												padding: "15px"
 											}}>
 											<List />
+
 											<PromoCode />
 											<Total />
 										</div>

@@ -5,9 +5,9 @@ function Total() {
 		<Context.Consumer>
 			{({ store }) => {
 				let total = 0;
-				store.cart.forEach((item, index) => {
-					total = total + item.price;
-				});
+				// store.cart.forEach((item, index) => {
+				// 	total = total + item.price;
+				// });
 
 				return (
 					<div>

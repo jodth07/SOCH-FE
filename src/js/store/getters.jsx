@@ -38,7 +38,6 @@ export function getUserCart(scope) {
 			.then(response => response.json())
 			.catch(response => {
 				if (!response.ok) {
-					console.log("made it here");
 					createUserCart(scope);
 				}
 			})

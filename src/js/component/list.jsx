@@ -6,7 +6,7 @@ function List() {
 	return (
 		<Context.Consumer>
 			{({ store }) => {
-				return store.cart.map((item, index) => {
+				return store.session.cart_items.map((item, index) => {
 					return (
 						<Item
 							key={index}

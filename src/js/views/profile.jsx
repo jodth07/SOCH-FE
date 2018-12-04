@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "../../styles/login.css";
 import "../../styles/profile.css";
-// import {LogingIn} from "../component/loginIn";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 import UpdateInfo from "../component/profile/updateInfo.jsx";
 import { AddressView } from "../component/profile/address.jsx";
 import { Cart } from "../component/profile/cart.jsx";
+
+import Summary from "../component/profile/summary.jsx";
 
 export class Profile extends Component {
 	constructor() {
@@ -64,7 +65,11 @@ export class Profile extends Component {
 												</a>
 											</div>
 										</div>
+										<div className="pt-4">
+											<Summary />
+										</div>
 									</div>
+
 									<div className="col-8">
 										<nav className="">
 											<div

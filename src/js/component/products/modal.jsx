@@ -100,7 +100,6 @@ class Modal extends React.Component {
 											onClick={() => {
 												new_cart.quantity > 0 &&
 													actions.addToCart(new_cart);
-												console.log(new_cart);
 
 												this.props.onClose();
 												actions.unStage();
