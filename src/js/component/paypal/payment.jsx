@@ -118,10 +118,5 @@ PaypalButton.propTypes = {
 	onError: PropTypes.func,
 	onCancel: PropTypes.func,
 	isScriptLoaded: PropTypes.bool,
-	isScriptLoadSucceed: PropTypes.bool,
-
-	item: PropTypes.object,
-	onClose: PropTypes.func,
-	// onDelete: PropTypes.func,
-	show: PropTypes.bool
+	isScriptLoadSucceed: PropTypes.bool
 };

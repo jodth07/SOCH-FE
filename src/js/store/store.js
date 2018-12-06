@@ -40,42 +40,17 @@ const getState = scope => {
 
 			styles: [], // Recieving from API
 
+			stylists: [],
+
 			featured: {}, // Recieving from API
 
 			session: {
 				token: "",
 				user: {},
-				cart: {
-					id: 1,
-					products: [3, 4, 19],
-					purchase_date: "2018-11-27",
-					purchased: false,
-					subtotal: "187.00",
-					tax_percentage: "0.06500",
-					tax_total: "12.16",
-					timestamp: "2018-11-24T21:47:24.862174Z",
-					total: "199.16",
-					updated: "2018-11-27T19:37:36.340543Z",
-					user: 2
-				},
-				cart_items: [
-					{
-						id: 12,
-						product: {
-							id: 21,
-							title: "Beautiful Textures Tangle Taming Shampoo",
-							category: "Product",
-							description:
-								"Beautiful Textures Tangle Taming Shampoo",
-							duration: 0,
-							image: 4,
-							price: "11.00"
-						},
-						quantity: 1,
-						subtotal: "11.00"
-					}
-				],
+				cart: {},
+				cart_items: [],
 				purchased: {},
+
 				address: [
 					{
 						Country: "United States",

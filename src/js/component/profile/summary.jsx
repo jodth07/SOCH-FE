@@ -5,8 +5,7 @@ import Coupon from "../coupon.jsx";
 import PaypalButton from "../paypal/payment.jsx";
 
 const CLIENT = {
-	sandbox:
-		"AXU1a6Iesx_UPO_KY3sOaURz5vl0Q4RZMPzGT0fapTLmCICV_GSXZtGOFwV2sIN9_HXRiCeOoEZPyeWi",
+	sandbox: "string",
 	production: process.env.PAYPAL_CLIENT_ID_PRODUCTION
 };
 
@@ -24,11 +23,10 @@ class Summary extends Component {
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
+					let number = store.session.cart_items.length;
 					return (
 						<div>
-							<QuantityOfItems
-								number={store.session.cart_items.length}
-							/>
+							<QuantityOfItems number={number} />
 							<h3 style={{ opacity: "0.7" }}>Cart Summary</h3>
 							<div
 								style={{
@@ -43,7 +41,10 @@ class Summary extends Component {
 											float: "right",
 											opacity: "0.7"
 										}}>
-										{"$ " + store.session.cart.subtotal}
+										${" "}
+										{number === 0
+											? "0.00"
+											: store.session.cart.subtotal}
 									</div>
 									<p>Total Before Tax</p>
 								</div>
@@ -58,7 +59,10 @@ class Summary extends Component {
 											float: "right",
 											opacity: "0.7"
 										}}>
-										{"$ " + store.session.cart.tax_total}
+										${" "}
+										{number === 0
+											? "0.00"
+											: store.session.cart.tax_total}
 									</p>
 									<p>Tax</p>
 								</div>
@@ -69,8 +73,11 @@ class Summary extends Component {
 											float: "right",
 											opacity: "0.7"
 										}}>
-										<br />
-										{"$ " + store.session.cart.total}
+										<br />${" "}
+										{number === 0
+											? "0.00"
+											: store.session.cart.total}
+										{/* {"$ " + store.session.cart.total} */}
 									</div>
 									<h5 style={{}}>
 										<br />
@@ -89,12 +96,6 @@ class Summary extends Component {
 								onError={onError}
 								onCancel={onCancel}
 							/>
-
-							{/* <button
-								className="btn btn-success col-md-12 mb-3 mt-4"
-								type="submit">
-								Continue to checkout
-							</button> */}
 						</div>
 					);
 				}}

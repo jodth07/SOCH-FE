@@ -34,15 +34,12 @@ export function getUserAddress(scope) {
 export function getUserCart(scope) {
 	let store = scope.state.store;
 	if (store.session.logged_in) {
-		fetch("http://127.0.0.1:8000/api/carts/c/" + store.session.user.id)
+		var url = "http://127.0.0.1:8000/api/carts/c/" + store.session.user.id;
+		fetch(url)
 			.then(response => response.json())
-			.catch(response => {
-				if (!response.ok) {
-					createUserCart(scope);
-				}
-			})
 			.then(data => {
 				store.session.cart = data;
+				console.log(data);
 				scope.setState({ store });
 				getUserCartItems(scope);
 			});
@@ -77,6 +74,7 @@ export function createUserCart(scope) {
 			.then(data => {
 				store.session.cart = data;
 				scope.setState({ store });
+				getUserCart(scope);
 			});
 	}
 }
@@ -99,6 +97,18 @@ export function getAuthkey(scope, email, pass) {
 			store.session.logged_in = true;
 			scope.setState({ store });
 			getUserData(scope);
+		});
+}
+
+// Main info
+
+export function getStylists(scope) {
+	let store = scope.state.store;
+	fetch("http://127.0.0.1:8000/api/users/stylists/")
+		.then(response => response.json())
+		.then(data => {
+			store.stylists = data;
+			scope.setState({ store });
 		});
 }
 

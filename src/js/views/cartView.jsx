@@ -14,10 +14,12 @@ class CartView extends Component {
 							<div className="container">
 								<div className="row mt-3">
 									<div className="col-12 d-flex justify-content-center mx-auto">
-										<div className="col-7 mt-3">
+										<div className="col-9 mt-3">
 											<Cart />
 										</div>
-										<Summary />
+										<div className="col-3 mt-3">
+											<Summary />
+										</div>
 									</div>
 								</div>
 							</div>
