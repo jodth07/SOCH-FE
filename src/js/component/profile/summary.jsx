@@ -14,18 +14,10 @@ const ENV = process.env.NODE_ENV === "production" ? "production" : "sandbox";
 
 class Summary extends Component {
 	render() {
-		// const onSuccess = payment =>
-		// 	console.log("Successful payment!", payment);
-
-		// const onError = error =>
-		// 	console.log("Erroneous payment OR failed to load script!", error);
-
-		// const onCancel = data => console.log("Cancelled payment!", data);
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
 					const onSuccess = payment => {
-						console.log("Successful payment!", payment);
 						let cart = {};
 						cart.payment_token = payment.paymentToken;
 						cart.payment_id = payment.paymentID;
