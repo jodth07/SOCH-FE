@@ -16,6 +16,9 @@ class Modal extends React.Component {
 					new_cart.cart = store.session.cart.id;
 					new_cart.product = c_item.id;
 					new_cart.quantity = 1;
+					let link = c_item.image
+						? "http://127.0.0.1:8000/api/medias/" + c_item.image
+						: "";
 
 					return (
 						<div
@@ -54,10 +57,7 @@ class Modal extends React.Component {
 										<div>
 											<img
 												className="card-img-top pb-3 rounded mx-auto d-block"
-												src={
-													"http://127.0.0.1:8000/api/medias/" +
-													c_item.image
-												}
+												src={link}
 												style={{
 													display: "block",
 													maxWidth: 15 + "em",
