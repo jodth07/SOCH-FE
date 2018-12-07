@@ -1,10 +1,15 @@
 # Sisters of Culture Hair
-#### Website FrontEnd for hair appointments, products, clients and artists | Using React Context
+#### FrontEnd SOCH Website for making hair appointments, puchase products, by clients from stylists | Using React Context
 
-##### Download the boilerplate using the BreatheCode CLI
+##### Clone this project - FrontEnd
+`$ git clone https://github.com/jodth07/SOCH-FE.git`
 `$ npm i 8` if version 8 is not yet installed, otherwise 
 `$ npm use 8` 
 
+##### Clone this project - BackEnd from :
+`https://github.com/jodth07/SOCH-API.git`
+
+ 
 ##### and install the npm package:
 ```
 $ npm install
