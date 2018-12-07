@@ -2,26 +2,27 @@ import React, { Component } from "react";
 import { Context } from "../../store/appContext.jsx";
 import CartItem from "./cartItem.jsx";
 
-export class Cart extends Component {
+export class History extends Component {
 	render() {
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
-					var cart_items = store.session.cart_items;
-					var empty = <h5>Your Cart is currently empty</h5>;
+					var history = store.session.history;
+					var empty = <h5>Your Purchase History is currently empty</h5>;
 
 					return (
 						<ul className="list-group list-group-flush">
-							{cart_items.length === 0 ? (
+							{history.length === 0 ? (
 								empty
 							) : (
 								<div>
-									{cart_items.map((cart_item, index) => {
+									{history.map((cart, index) => {
 										return (
-											<CartItem
-												key={index}
-												item={cart_item}
-											/>
+											// <Cart
+											// 	key={index}
+											// 	item={cart}
+                                            // />
+                                            <p>Hi</p>
 										);
 									})}
 								</div>

@@ -4,11 +4,8 @@ import slide12 from "../../img/slide_32.jpg";
 
 import {
 	getProducts,
-	getAuthkey,
 	getUserAddress,
-	getUserCart,
 	getUserCartItems,
-	createUserCart,
 	getUserData
 } from "./getters.jsx";
 
@@ -50,6 +47,8 @@ const getState = scope => {
 				cart: {},
 				cart_items: [],
 				purchased: {},
+
+				history: [],
 
 				address: [
 					{
