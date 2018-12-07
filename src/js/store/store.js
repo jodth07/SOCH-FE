@@ -1,6 +1,6 @@
-import slide10 from "../../img/slide_10.jpg";
-import slide11 from "../../img/slide_11.jpg";
-import slide12 from "../../img/slide_12.jpg";
+import slide10 from "../../img/slide_30.jpg";
+import slide11 from "../../img/slide_42.jpg";
+import slide12 from "../../img/slide_32.jpg";
 
 import {
 	getProducts,
@@ -32,7 +32,7 @@ const getState = scope => {
 					src: slide12,
 					altText: "Styles",
 					title: "Styles",
-					caption: "styles"
+					caption: "Styles"
 				}
 			],
 

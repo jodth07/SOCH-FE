@@ -6,7 +6,7 @@ export class Footer extends Component {
 			<footer className="container border-top p-3">
 				<div className="row">
 					<div className="col-10 text-center">
-						© 2017-2018 Company, Inc.
+						©2018 JD, Inc.
 						<a href="#ppage">Privacy</a>
 						<a href="#termspage">Terms</a>
 					</div>

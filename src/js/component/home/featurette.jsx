@@ -20,13 +20,25 @@ export function Featurette(props) {
 				<p className="card-text mb-auto"> {featuredItem.description}</p>
 				<Link to={featuredItem.category + "s"}>Continue reading</Link>
 			</div>
-			<img
-				className="card-img-right flex-auto d-none d-md-block"
-				style={{ width: 18 + "em", height: 14 + "em" }}
-				src={"http://127.0.0.1:8000/api/medias/" + featuredItem.image}
-				alt="Card image cap"
-			/>
-			{/* </div> */}
+			<div>
+				<img
+					className="card-img-right flex-auto d-none d-md-block"
+					// style={{ width: 18 + "em", height: 14 + "em" }}
+					style={{
+						display: "block",
+						maxWidth: 15 + "em",
+						// width: 15 + "em",
+						maxHeight: 18 + "em",
+						width: "auto",
+						height: "auto",
+						overflow: "hidden"
+					}}
+					src={
+						"http://127.0.0.1:8000/api/medias/" + featuredItem.image
+					}
+					alt="Card image cap"
+				/>
+			</div>
 		</div>
 	);
 	// }
@@ -34,8 +46,6 @@ export function Featurette(props) {
 Featurette.propTypes = {
 	item: PropTypes.object
 	// 	isReverse: PropTypes.bool,
-	// 	product: PropTypes.object.isRequired,
-	// 	button: PropTypes.element.isRequired
 };
 
 export default Featurette;

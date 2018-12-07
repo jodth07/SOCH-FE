@@ -64,7 +64,23 @@ class MyCaroursel extends Component {
 					onExited={this.onExited}
 					key={item.src}>
 					<Link to={"/" + item.title}>
-						<img src={item.src} alt={item.altText} />
+						<div
+							style={{
+								maxHeight: 35 + "rem"
+
+								// height: 5.93 + "in"
+							}}>
+							<img
+								style={{
+									maxWidth: 170 + "rem",
+
+									overflow: "hidden"
+									// height: 5.93 + "in"
+								}}
+								src={item.src}
+								alt={item.altText}
+							/>
+						</div>
 
 						<CarouselCaption
 							captionText={item.caption}

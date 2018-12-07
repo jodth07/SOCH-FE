@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Context } from "../../store/appContext.jsx";
-import QuantityOfItems from "../quantityofitems.jsx";
-import Coupon from "../coupon.jsx";
+import QuantityOfItems from "./quantityofitems.jsx";
+import Coupon from "./coupon.jsx";
 import PaypalButton from "../paypal/payment.jsx";
 
 const CLIENT = {
