@@ -56,13 +56,26 @@ export class Profile extends Component {
 													<strong>Email</strong>
 													{user.email}
 												</p>
-
-												<a className="card-link">
-													Update Info
-												</a>
-												<a className="card-link">
-													View Cart
-												</a>
+												<div className="row container justify-content-between">
+													<a
+														href="#"
+														onClick={() => {
+															this.setState({
+																show_div_nav: 3
+															});
+														}}>
+														Update Info
+													</a>
+													<a
+														href="#"
+														onClick={() => {
+															this.setState({
+																show_div_nav: 2
+															});
+														}}>
+														View Cart
+													</a>
+												</div>
 											</div>
 										</div>
 										<div className="pt-4">
@@ -93,7 +106,8 @@ export class Profile extends Component {
 													href="#nav-home"
 													role="tab"
 													aria-controls="nav-home"
-													aria-selected="false">
+													aria-selected="false"
+													href="#">
 													Profile Info
 												</a>
 												<a
@@ -118,9 +132,11 @@ export class Profile extends Component {
 															.show_div_nav === 2
 															? "true"
 															: "false"
-													}>
+													}
+													href="#">
 													Cart
 												</a>
+
 												<a
 													onClick={() =>
 														this.setState({
@@ -138,8 +154,36 @@ export class Profile extends Component {
 													href="#nav-contact"
 													role="tab"
 													aria-controls="nav-contact"
-													aria-selected="false">
+													aria-selected="false"
+													href="#">
 													Update Info
+												</a>
+
+												<a
+													onClick={() =>
+														this.setState({
+															show_div_nav: 4
+														})
+													}
+													className={
+														this.state
+															.show_div_nav === 4
+															? show_nav
+															: hide_nav
+													}
+													id="nav-profile-tab"
+													data-toggle="tab"
+													href="#nav-profile"
+													role="tab"
+													aria-controls="nav-profile"
+													aria-selected={
+														this.state
+															.show_div_nav === 4
+															? "true"
+															: "false"
+													}
+													href="#">
+													Purchase History
 												</a>
 											</div>
 										</nav>
@@ -201,6 +245,22 @@ export class Profile extends Component {
 												role="tabpanel"
 												aria-labelledby="nav-contact-tab">
 												<UpdateInfo />
+											</div>
+
+											<div
+												className={
+													this.state.show_div_nav ===
+													4
+														? show_div
+														: hide_div
+												}
+												id="nav-contact"
+												role="tabpanel"
+												aria-labelledby="nav-contact-tab">
+												<h2>
+													Your purchase history is
+													currently empty
+												</h2>
 											</div>
 										</div>
 									</div>
