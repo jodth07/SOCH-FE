@@ -20,7 +20,6 @@ class Modal extends React.Component {
 						? "http://127.0.0.1:8000/api/medias/" + c_item.image
 						: "";
 
-					console.log("this is modal");
 					return (
 						<div
 							className="modal"
