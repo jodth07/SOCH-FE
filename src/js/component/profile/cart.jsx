@@ -12,23 +12,19 @@ export class Cart extends Component {
 
 					return (
 						<ul className="list-group list-group-flush">
-							{store.session.cart.products ? (
-								cart_items.length === 0 ? (
-									empty
-								) : (
-									<div>
-										{cart_items.map((cart_item, index) => {
-											return (
-												<CartItem
-													key={index}
-													item={cart_item}
-												/>
-											);
-										})}
-									</div>
-								)
-							) : (
+							{cart_items.length === 0 ? (
 								empty
+							) : (
+								<div>
+									{cart_items.map((cart_item, index) => {
+										return (
+											<CartItem
+												key={index}
+												item={cart_item}
+											/>
+										);
+									})}
+								</div>
 							)}
 						</ul>
 					);

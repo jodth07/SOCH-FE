@@ -40,42 +40,17 @@ const getState = scope => {
 
 			styles: [], // Recieving from API
 
+			stylists: [],
+
 			featured: {}, // Recieving from API
 
 			session: {
 				token: "",
 				user: {},
-				cart: {
-					id: 1,
-					products: [3, 4, 19],
-					purchase_date: "2018-11-27",
-					purchased: false,
-					subtotal: "187.00",
-					tax_percentage: "0.06500",
-					tax_total: "12.16",
-					timestamp: "2018-11-24T21:47:24.862174Z",
-					total: "199.16",
-					updated: "2018-11-27T19:37:36.340543Z",
-					user: 2
-				},
-				cart_items: [
-					{
-						id: 12,
-						product: {
-							id: 21,
-							title: "Beautiful Textures Tangle Taming Shampoo",
-							category: "Product",
-							description:
-								"Beautiful Textures Tangle Taming Shampoo",
-							duration: 0,
-							image: 4,
-							price: "11.00"
-						},
-						quantity: 1,
-						subtotal: "11.00"
-					}
-				],
+				cart: {},
+				cart_items: [],
 				purchased: {},
+
 				address: [
 					{
 						Country: "United States",
@@ -126,14 +101,13 @@ const getState = scope => {
 						method: "POST", // *GET, POST, PUT, DELETE, etc.
 						body: JSON.stringify({
 							quantity: cart_item.quantity,
-							cart: cart_item.cart,
+							cart: store.session.cart.id,
 							product: cart_item.product
 						}),
 						headers: {
 							"Content-Type": "application/json"
 						}
 					}).then(response => {
-						response.json();
 						if (response.ok) {
 							scope.state.actions.getUserCart(scope);
 						}
@@ -180,21 +154,44 @@ const getState = scope => {
 			},
 
 			// carts
+
+			updatePurchaseCart: cart => {
+				let store = scope.state.store;
+				fetch(
+					"http://127.0.0.1:8000/api/carts/c/" +
+						store.session.cart.id,
+					{
+						method: "PUT", // *GET, POST, PUT, DELETE, etc.
+						body: JSON.stringify({
+							id: store.session.cart.id,
+							payer_id: cart.payer_id,
+							payment_id: cart.payment_id,
+							purchased: cart.purchased,
+							payment_token: cart.payment_token
+						}), // data can be `string` or {object}!
+						headers: {
+							"Content-Type": "application/json"
+						}
+					}
+				).then(response => {
+					if (response.ok) {
+						response.json();
+						scope.state.actions.getUserCart(scope);
+					}
+				});
+			},
+
 			getUserCart: scope => {
 				let store = scope.state.store;
 				if (store.session.logged_in) {
-					fetch(
+					var url =
 						"http://127.0.0.1:8000/api/carts/c/" +
-							store.session.user.id
-					)
+						store.session.user.id;
+					fetch(url)
 						.then(response => response.json())
-						.catch(response => {
-							if (!response.ok) {
-								createUserCart(scope);
-							}
-						})
 						.then(data => {
 							store.session.cart = data;
+							console.log(data);
 							scope.setState({ store });
 							getUserCartItems(scope);
 						});
