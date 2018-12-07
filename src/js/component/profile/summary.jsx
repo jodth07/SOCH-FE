@@ -5,7 +5,8 @@ import Coupon from "../coupon.jsx";
 import PaypalButton from "../paypal/payment.jsx";
 
 const CLIENT = {
-	sandbox: "string",
+	sandbox:
+		"AXU1a6Iesx_UPO_KY3sOaURz5vl0Q4RZMPzGT0fapTLmCICV_GSXZtGOFwV2sIN9_HXRiCeOoEZPyeWi",
 	production: process.env.PAYPAL_CLIENT_ID_PRODUCTION
 };
 
@@ -13,16 +14,35 @@ const ENV = process.env.NODE_ENV === "production" ? "production" : "sandbox";
 
 class Summary extends Component {
 	render() {
-		const onSuccess = payment =>
-			console.log("Successful payment!", payment);
+		// const onSuccess = payment =>
+		// 	console.log("Successful payment!", payment);
 
-		const onError = error =>
-			console.log("Erroneous payment OR failed to load script!", error);
+		// const onError = error =>
+		// 	console.log("Erroneous payment OR failed to load script!", error);
 
-		const onCancel = data => console.log("Cancelled payment!", data);
+		// const onCancel = data => console.log("Cancelled payment!", data);
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
+					const onSuccess = payment => {
+						console.log("Successful payment!", payment);
+						let cart = {};
+						cart.payment_token = payment.paymentToken;
+						cart.payment_id = payment.paymentID;
+						cart.payer_id = payment.payerID;
+						cart.purchased = payment.paid;
+						actions.updatePurchaseCart(cart);
+					};
+
+					const onError = error =>
+						console.log(
+							"Erroneous payment OR failed to load script!",
+							error
+						);
+
+					const onCancel = data =>
+						console.log("Cancelled payment!", data);
+
 					let number = store.session.cart_items.length;
 					return (
 						<div>
@@ -77,7 +97,6 @@ class Summary extends Component {
 										{number === 0
 											? "0.00"
 											: store.session.cart.total}
-										{/* {"$ " + store.session.cart.total} */}
 									</div>
 									<h5 style={{}}>
 										<br />
@@ -91,7 +110,7 @@ class Summary extends Component {
 								env={ENV}
 								commit={true}
 								currency={"USD"}
-								total={0.01}
+								total={Number(store.session.cart.total)}
 								onSuccess={onSuccess}
 								onError={onError}
 								onCancel={onCancel}

@@ -101,14 +101,13 @@ const getState = scope => {
 						method: "POST", // *GET, POST, PUT, DELETE, etc.
 						body: JSON.stringify({
 							quantity: cart_item.quantity,
-							cart: cart_item.cart,
+							cart: store.session.cart.id,
 							product: cart_item.product
 						}),
 						headers: {
 							"Content-Type": "application/json"
 						}
 					}).then(response => {
-						response.json();
 						if (response.ok) {
 							scope.state.actions.getUserCart(scope);
 						}
@@ -155,21 +154,44 @@ const getState = scope => {
 			},
 
 			// carts
+
+			updatePurchaseCart: cart => {
+				let store = scope.state.store;
+				fetch(
+					"http://127.0.0.1:8000/api/carts/c/" +
+						store.session.cart.id,
+					{
+						method: "PUT", // *GET, POST, PUT, DELETE, etc.
+						body: JSON.stringify({
+							id: store.session.cart.id,
+							payer_id: cart.payer_id,
+							payment_id: cart.payment_id,
+							purchased: cart.purchased,
+							payment_token: cart.payment_token
+						}), // data can be `string` or {object}!
+						headers: {
+							"Content-Type": "application/json"
+						}
+					}
+				).then(response => {
+					if (response.ok) {
+						response.json();
+						scope.state.actions.getUserCart(scope);
+					}
+				});
+			},
+
 			getUserCart: scope => {
 				let store = scope.state.store;
 				if (store.session.logged_in) {
-					fetch(
+					var url =
 						"http://127.0.0.1:8000/api/carts/c/" +
-							store.session.user.id
-					)
+						store.session.user.id;
+					fetch(url)
 						.then(response => response.json())
-						.catch(response => {
-							if (!response.ok) {
-								createUserCart(scope);
-							}
-						})
 						.then(data => {
 							store.session.cart = data;
+							console.log(data);
 							scope.setState({ store });
 							getUserCartItems(scope);
 						});
