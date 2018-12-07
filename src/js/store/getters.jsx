@@ -58,27 +58,6 @@ export function getUserCartItems(scope) {
 	}
 }
 
-export function createUserCart(scope) {
-	let store = scope.state.store;
-	if (store.session.logged_in) {
-		fetch("http://127.0.0.1:8000/api/carts/c/", {
-			method: "POST", // *GET, POST, PUT, DELETE, etc.
-			body: JSON.stringify({
-				user: store.session.user.id
-			}), // data can be `string` or {object}!
-			headers: {
-				"Content-Type": "application/json"
-			}
-		})
-			.then(response => response.json())
-			.then(data => {
-				store.session.cart = data;
-				scope.setState({ store });
-				getUserCart(scope);
-			});
-	}
-}
-
 export function getAuthkey(scope, email, pass) {
 	let store = scope.state.store;
 	fetch("http://127.0.0.1:8000/api/users/login/", {
@@ -101,16 +80,6 @@ export function getAuthkey(scope, email, pass) {
 }
 
 // Main info
-
-export function getStylists(scope) {
-	let store = scope.state.store;
-	fetch("http://127.0.0.1:8000/api/users/stylists/")
-		.then(response => response.json())
-		.then(data => {
-			store.stylists = data;
-			scope.setState({ store });
-		});
-}
 
 export function getProducts(scope) {
 	let store = scope.state.store;
@@ -142,8 +111,19 @@ export function getFeatured(scope) {
 		});
 }
 
+export function getStylists(scope) {
+	let store = scope.state.store;
+	fetch("http://127.0.0.1:8000/api/users/stylists/")
+		.then(response => response.json())
+		.then(data => {
+			store.stylists = data;
+			scope.setState({ store });
+		});
+}
+
 export default function loadGetters(scope) {
 	getFeatured(scope);
 	getProducts(scope);
 	getStyles(scope);
+	getStylists(scope);
 }

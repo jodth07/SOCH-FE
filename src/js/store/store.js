@@ -191,7 +191,6 @@ const getState = scope => {
 						.then(response => response.json())
 						.then(data => {
 							store.session.cart = data;
-							console.log(data);
 							scope.setState({ store });
 							getUserCartItems(scope);
 						});
