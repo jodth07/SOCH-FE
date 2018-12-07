@@ -23,7 +23,7 @@ class PaypalButton extends React.Component {
 		}
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
+	static getDerivedStateFromProps(nextProps, prevState) {
 		const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
 		const isLoadedButWasntLoadedBefore =
@@ -36,6 +36,15 @@ class PaypalButton extends React.Component {
 				this.setState({ showButton: true });
 			}
 		}
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		//    if(prevProps.someValue!==this.props.someValue){
+		// 	 //Perform some operation here
+		// 	 this.setState({someState: someValue});
+		// 	 this.classMethod();
+		//    }
+		return;
 	}
 
 	render() {
